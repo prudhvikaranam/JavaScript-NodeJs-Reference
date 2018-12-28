@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <title>Part - 1 Object Oriented JavaScript - ES5 & ES2015</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{
+    font-family: monospace;
+    }
+    h1{
+      color:blue;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    h3{
+      text-decoration: underline;
+      font-size: 23px;
+      color: orange;
+    }
+    p{
+      font-size: 16px;
+    }
+    i{
+      color:red;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="greeting"></div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <h1>Synchronos, Asynchronos Programming and AJAX fetch concepts</h1>
+
+
+  <p><i><b>Synchronous Programming:</b> </i>In Synchronous Programming, a function/method or something has to wait for each of the above operation to complete. In more specific 2nd line of the code will be exceuted only the first line of the code executes<br><br>
+  <b>Example:</b><br>load syncPost(function(){<br>
+    //waits till posts are fetched<br>
+    //perform some operation with the posts<br>
+  })<br>
+  doSomeOtherThing();<br><br>
+  In the above example doSomeOtherThing() function will not be executed until and unless load syncPost() completes its operations
+
+  </p>
+
+
+
+  <p><i><b>ASynchronous Programming:</b> </i>In ASynchronous Programming 2nd line of the code will get excuted even the operation of the first line is not completed</p>
+  <b>Example:</b><br>load syncPost(function(){<br>
+    //waits till posts are fetched<br>
+    //perform some operation with the posts<br>
+  })<br>
+  doSomeOtherThing();<br><br>
+  In the above example doSomeOtherThing() function will be executed  eventhough load syncPost() not completed its operations<br><br>
+  Few ways to handle Asynchronos code is <b><i>Callbacks, Promises(New feature), Async/wait(New feature)</i></b>
+
+
+  <hr>
+  <h1>XHR Object Methods & Working With Text</h1>
+      <button onclick="loadData()" class="btn btn-info">Say Hi</button><br>
+      <div class="output" id="output"></div>
+
+  <hr>
+  <h1>Working with AJAX and JSON format</h1>
+  <button id='button1' onclick="loadCustomer()" class="btn btn-success">Customer</button>
+  <button id='button1' onclick="loadCustomers()" class="btn btn-danger">Customers</button>
+
+  <h3>Customer</h3>
+  <div id="customer"></div>
+  
+  <h3>Customers</h3>
+  <div class="customers" id="customers"></div><hr>
+  
+
+  <h1>Sample Project on AJAX and JSON</h1>
+  <input type="number" id='number'>
+  <button id='button1' onclick="loadCustomersFromInput()" class="btn btn-info">Customers</button>
+  
+  <div class="output1" id="output1"></div><hr>
+
+  <h1>Callbacks</h1>
+   <p>Callback is a function that is passed as a parameter into an another function.<br>
+      For Example:See the js file
+   </p><hr> 
+
+
+   <h1>Custom HTTP Library (AJAX with callbacks) Paste the link in below input box to retrieve the data</h1>
+   <p><input type="text" id='loadTheLink'></p> 
+   <button onclick="load()" class="btn btn-info">Load</button>
+   <div class="output1" id="output2"></div><hr>
+
+   <button id="buttonZ">Click</button>
+   <div id="output4"></div>
+  <script src="easyhttp.js"></script>
+  <script src="script.js"></script>
+</body>
+</html> 
