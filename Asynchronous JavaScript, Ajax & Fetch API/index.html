@@ -62,13 +62,13 @@
 
   <hr>
   <h1>XHR Object Methods & Working With Text</h1>
-      <button onclick="loadData()" class="btn btn-info">Say Hi</button><br>
+      <button onclick="loadData()" class="btn btn-outline-info">Say Hi</button><br>
       <div class="output" id="output"></div>
 
   <hr>
   <h1>Working with AJAX and JSON format</h1>
-  <button id='button1' onclick="loadCustomer()" class="btn btn-success">Customer</button>
-  <button id='button1' onclick="loadCustomers()" class="btn btn-danger">Customers</button>
+  <button id='button1' onclick="loadCustomer()" class="btn btn-outline-success">Customer</button>
+  <button id='button1' onclick="loadCustomers()" class="btn btn-outline-danger">Customers</button>
 
   <h3>Customer</h3>
   <div id="customer"></div>
@@ -79,7 +79,7 @@
 
   <h1>Sample Project on AJAX and JSON</h1>
   <input type="number" id='number'>
-  <button id='button1' onclick="loadCustomersFromInput()" class="btn btn-info">Customers</button>
+  <button id='button1' onclick="loadCustomersFromInput()" class="btn btn-outline-info">Customers</button>
   
   <div class="output1" id="output1"></div><hr>
 
@@ -91,11 +91,29 @@
 
    <h1>Custom HTTP Library (AJAX with callbacks) Paste the link in below input box to retrieve the data</h1>
    <p><input type="text" id='loadTheLink'></p> 
-   <button onclick="load()" class="btn btn-info">Load</button>
+   <button onclick="load()" class="btn btn-outline-info">Load</button>
    <div class="output1" id="output2"></div><hr>
 
-   <button id="buttonZ">Click</button>
-   <div id="output4"></div>
+
+   
+   <h1>Promises</h1>
+   <p>Alternate to callbacks: Promises work same like callbacks, which handles asynchrous operations, we can use promises instead of callbacks. Fetch API acually uses promises</p>  
+   <a href="https://hackernoon.com/understanding-promises-in-javascript-13d99df067c1"><button class="btn btn-outline-info">Click here to know more about promises</button></a><hr>
+
+
+
+  <h1>Fetch API</h1>
+   <p>Fetch is used an interface for fetching the data from API's.It is similar to XMLHttpRequest in AJAX.<br>Fetch returns promises, Hence promises are important in Fetch APIs<br>Use below button to fetch the data using FETCH API</p>
+
+   <button class="btn btn-outline-secondary" id="buttonF-data">Click here to get the data from text file</button>
+   <button class="btn btn-outline-secondary" id="buttonF-JSON">Click here to get the data from JSON file</button>
+   <button class="btn btn-outline-secondary" id="buttonF-External">Click here to get the data from External API</button>
+
+   <div id="fetchoutput"></div><hr>
+
+   <h1>Arrow functions</h1>
+
+
   <script src="easyhttp.js"></script>
   <script src="script.js"></script>
 </body>
