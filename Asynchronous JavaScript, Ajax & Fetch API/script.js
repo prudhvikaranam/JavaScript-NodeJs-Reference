@@ -467,3 +467,25 @@ function getAPI(){
 
 
 console.log("************ARROW function**********");
+
+// normal function
+function something(){
+  console.log('Hello! These is a normal function');
+}
+
+something();
+
+var something1 = function (){
+  console.log('Hello! These is also a  normal function');
+}
+
+something1();
+
+//Arrow function
+
+var arrowFunction = () => {console.log('Hello These is a arrow function')};
+arrowFunction();
+
+
+var arrowFunction1 = () => console.log('Hello These is also arrow function');
+arrowFunction1();
