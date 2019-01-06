@@ -18,10 +18,12 @@
 // console.log(John.age);
 
 // // We Can do below (Adding a Property to an Object)
+
 // John.nationality = 'English';
 // console.log(John);
 
 // //But difficult to do below (Adding a Property to a Constructor)
+
 // Person.nationality = 'English';
 // // instead we can do below
 // function Person1(firstName,lastName,age){
@@ -36,7 +38,19 @@
 // // document.write(user1.fName,user1.lName,user1.age);
 
 
+//************Sample Programs**************//
 
+// var namee = prompt('Please enter your name');
+// var dobb = prompt('Please enter your age','dd-mm-yyyy');
+
+// function Person(name,dob){
+// 	this.name = namee;
+// 	this.dob = dobb;
+// }
+
+// var brad = new Person(namee,dobb);
+
+// console.log(brad);
 
 
 
