@@ -44,13 +44,34 @@
 // var dobb = prompt('Please enter your age','dd-mm-yyyy');
 
 // function Person(name,dob){
-// 	this.name = namee;
-// 	this.dob = dobb;
+// 	this.name = name;
+//   this.dob = new Date(dob);
+//   this.calculateAge = function(){
+//     var ageDifference = Date.now() - this.dob.getTime();
+//     var ageDate = new Date(ageDifference);
+//     return Math.abs(ageDate.getUTCFullYear() - 1970);
+//   }
 // }
 
 // var brad = new Person(namee,dobb);
 
-// console.log(brad);
+// if (brad.calculateAge() <= 25){
+//   console.log(`Hey ${brad.name} your are too young`);
+// }else if(brad.calculateAge() > 25 && brad.calculateAge() <= 30){
+//   console.log(`Hey ${brad.name} your are still young`);
+// }else{
+//   console.log(`Hey ${brad.name} your are getting old`);
+// }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -88,6 +109,37 @@
 // console.log(prudhvi.hasOwnProperty('fName'));
 
 // console.log(prudhvi.hasOwnProperty('greeting')); // These won't work because greeting is not in the actual Person constructor and it is added through prototype
+
+
+// console.log("********************Sample Program for prototype**************");
+
+
+
+// function Person(name,dob){
+// 	this.name = name;
+//   this.dob = new Date(dob);
+  
+// }
+
+// Person.prototype.calculateAge = function(){
+//       var ageDifference = Date.now() - this.dob.getTime();
+//       var ageDate = new Date(ageDifference);
+//       return Math.abs(ageDate.getUTCFullYear() - 1970);
+//     }
+
+// var brad = new Person('brad','9-7-85');
+// var teja = new Person('teja','09/07/1993');
+// console.log(brad);
+// console.log(brad.calculateAge());
+// console.log(teja);
+// console.log(teja.calculateAge());
+
+
+
+
+
+
+
 
 
 
@@ -131,6 +183,50 @@
 // console.log(kevin);
 // console.log(kevin.greeting()); //(these is returning from Customer prototype which is returing from Person prorotype)`
 
+// console.log("********************Sample Program for prototypal inheritance **************");
+
+
+// function Person(firstName,lastName,age){
+//       this.fName = firstName;
+//       this.lName = lastName;
+//       this.age = age;
+//   }
+
+// Person.prototype.greeting = function(){
+//   return `Hello ${this.fName} ${this.lName}`;
+// }
+
+// var brad = new Person('Brad','Traversy',29);
+// console.log(brad);
+// console.log(brad.greeting());
+
+// function Customer(firstName,lastName,Contact){ //If we try to do these you will age us undefined because age is not a property in Customer 
+//   Person.call(this,firstName,lastName);
+//   this.contact = Contact;
+// }
+
+// Customer.prototype = Object.create(Person.prototype);
+// Customer.prototype.constructor = Customer;
+// //Below are few more constructor examples which will not work, See console to check the output
+
+// // function Customer(firstName,lastName,Contact){
+// //   Person.call(this,firstName,lastName,Contact);
+// //   this.contact = Contact;
+// // }
+
+// // function Customer(firstName,Contact,lastName){
+// //   Person.call(this,firstName,lastName,Contact);
+// //   this.contact = Contact;
+// // }
+
+// var teja = new Customer('Prudhvi','Karanam',"91 9948835257");
+// console.log(teja);
+// console.log(teja.greeting());
+
+
+
+
+
 
 // console.log("********************Object.create**************");
 
@@ -156,6 +252,20 @@
 // });
 // console.log(brad);
 // console.log(brad.greeting());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // console.log("********************ES6 Classes**************");
@@ -185,6 +295,21 @@
 // var brad = new Person('Brad','Traversy','male');
 // console.log(brad);
 // console.log(Person.pricePerHead());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -29,17 +29,18 @@
 </head>
 <body>
   <h1>Object Oriented JavaScript</h1>
-  <h2>In Javascript: <i>new</i> keyword create a object from a constructor function.</h2>
+  <h2>In Javascript: <i>new</i> keyword create a object from a constructor function. So when you use <i>new</i> it is indeed creating a object </h2>
   <p>For examples see the source file in the Inspect Element</p> 
     <h3>Constructors and **THIS keyword</h3>
       <p>If we want to create a multiple instances of an object we need a constructor</p><hr>
         
     <h3>Prototypes</h3>  
-      <p>Prototype allows to add new property to an constructor..Prototypes helps not to flood the properties into the function constructor</p><hr>
+      <p>Prototype allows to add new property to an constructor..Prototypes helps not to flood the properties into the function constructor, If we have any logic inside a constructor which is commmon for all the objects then it is better to put that in prototype so that the constructor function will not get flooded with the properties which changes while instantiating a new object</p><hr>
       
 
     <h3>Prototypal Inheritance</h3>
-      <p>If we want to use the properties of one constructor into an another constructor (or) if we want to inherit the one object type from other</p>   <hr>
+      <p>If we want to use the properties of one constructor into an another constructor (or) if we want to inherit the one object type from other and Prototypes as well</p>  
+      <p>Side Note: .call() is a function that allows us to call the another function that from some where in the current context</p> <hr>
     
     <h3>Object.create</h3>
       <p>Another way of creating objects instead of prototype inheritance and creating constructors</p>  <hr>
