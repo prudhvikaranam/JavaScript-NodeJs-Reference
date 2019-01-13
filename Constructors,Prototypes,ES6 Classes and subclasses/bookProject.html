@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Project Using Cosntructors and Prototypes</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
 <style>
 body{
   text-align: center;
@@ -14,28 +17,37 @@ body{
 </head>
 <body>
 <h1>Sample Project Using Cosntructors and Prototypes</h1>
-
-<div class="container">
-    <form>
-      <div>
-        <label for="name">Your Name</label>
-        <input class="u-full-width" type="text" placeholder="Enter your Name" id="name">
-      </div>  
-      <div>
-        <label for="tel">Your Phone</label>
-        <input class="u-full-width" type="tel" placeholder="Enter your Ph" id="tel">
-      </div>   
-      <div>
-        <label for="country">Your Country</label>
-        <input class="u-full-width" type="text" placeholder="Enter your Country" id="country">
-      </div>
-      <div>
-          <input class="u-full-width" type="submit">
-        </div>     
-    </form>  
-</div>
-
+<br><hr>
+<form id='form'>
+  <div class="form-group" method="post">
+    <label for="exampleInputEmail1">Name</label>
+    <input type="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name">
+    
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Company</label>
+    <input type="text" class="form-control" id="company" placeholder="Company Name">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Telephone</label>
+    <input type="tel" class="form-control" id="telephone" placeholder="Telephone number">
+  </div>
+ 
+  <input type="submit" value="submit" class="btn btn-primary">
 </form>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Serial Number</th>
+      <th scope="col">Name</th>
+      <th scope="col">Company</th>
+      <th scope="col">Contact Number</th>
+      <th scope="col">Company ID</th>
+    </tr>
+  </thead>
+  <tbody id="emp-list"></tbody>
+</table>  
 <script src="bookProject.js"></script>
 </body>
 </html>
