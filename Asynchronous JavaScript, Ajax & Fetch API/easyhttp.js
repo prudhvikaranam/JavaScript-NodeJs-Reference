@@ -2,25 +2,25 @@ function easyhttp(){
   this.http = new XMLHttpRequest();
 }
 
-console.log("**************GET Method***********");
+// console.log("**************GET Method***********");
 
 // //Tried by directly passing url into onload
 
 
-// easyhttp.prototype.getPost = function(){
-//   this.http.open('GET','https://jsonplaceholder.typicode.com/posts',true);
-//   var self = this;
-//   this.http.onload = function(){
-//     if(self.http.status){
-//       console.log(self.http.responseText);
-//     }
-//   }
+easyhttp.prototype.getPost = function(){
+  this.http.open('GET','https://jsonplaceholder.typicode.com/posts',true);
+  var self = this;
+  this.http.onload = function(){
+    if(self.http.status){
+      console.log(self.http.responseText);
+    }
+  }
 
-//   this.http.send();
-// }
+  this.http.send();
+}
 
-// var http = new easyhttp();
-// http.getPost();
+var http = new easyhttp();
+http.getPost();
 
 
 // //getting the url dynamically from Input box
@@ -45,7 +45,7 @@ easyhttp.prototype.getPost = function(url,callback){
 }
 
 
-console.log("**************PUT Method***********");
+// console.log("**************PUT Method***********");
 
 easyhttp.prototype.post = function(url,data,callback){
   this.http.open('POST',url,true);
@@ -60,7 +60,7 @@ easyhttp.prototype.post = function(url,data,callback){
   this.http.send(JSON.stringify(data));
 }
 
-console.log("**************PUT Method***********");
+// console.log("**************PUT Method***********");
 
 easyhttp.prototype.put = function(url,data,callback){
   this.http.open('PUT',url,true);
@@ -75,7 +75,7 @@ easyhttp.prototype.put = function(url,data,callback){
   this.http.send(JSON.stringify(data));
 }
 
-console.log("**************DELETE Method***********");
+// console.log("**************DELETE Method***********");
 
 
 

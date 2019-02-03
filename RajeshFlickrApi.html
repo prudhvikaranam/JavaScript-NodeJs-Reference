@@ -1,0 +1,81 @@
+<!Doctype html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Helvetica;
+      }
+      .image {
+        display: inline-block;
+      }
+      .author {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input type="text" id='name' class='name'>
+      <input type="submit" onclick="ab()">
+      <h2 class="title"></h2>
+      <div class="images1">
+      </div>
+    </div>
+    <script>
+      function inViewport(selector) { 
+        var el = $(selector); 
+      if (el.length) {
+         var elH = el.outerHeight(),
+          H = $(window).height(),
+           tmp = H-400, 
+           r = el[0].getBoundingClientRect(), 
+           t=r.top, 
+           b=r.bottom; 
+           return Math.max(0, t>0? Math.min(elH, tmp-t) : (b<tmp?b:H)); 
+           } 
+      else return false; 
+      }
+
+
+
+      
+      function ab(data) {
+        var input = document.getElementById('name');
+        document.querySelector('.title').innerHTML = data.title;
+        var items = data.items;
+        console.log(items);
+        items.forEach(function (item) {
+          // image wrapper
+          var imageEl = document.createElement('div');
+          imageEl.classList.add('image');
+          // author
+          var authorEl = document.createElement('div');
+          var regex = /\(([^)]+)\)/;
+          var auth = regex.exec(item.author);
+          
+          authorEl.classList.add('author');
+          authorEl.innerHTML = auth[1].replace(/"/g, '');
+          // date
+          var dateEl = document.createElement('div');
+          dateEl.classList.add('date-taken');
+          dateEl.innerHTML = item.date_taken;
+          // img - media
+          var mediaEl = document.createElement('img');
+          mediaEl.style.width="200px";
+          mediaEl.style.height="160px";
+          mediaEl.src = item.media.m;
+          // append children to image wrapper
+          imageEl.appendChild(authorEl);
+          imageEl.appendChild(dateEl);
+          imageEl.appendChild(mediaEl);
+          // Images wrapper - append image wrapper to parent
+          var images1El = document.querySelector('.images1');
+          images1El.appendChild(imageEl);
+        })
+      }
+    </script>
+    <script src="http://www.flickr.com/services/feeds/photos_public.gne?tags='hyderabad'&format=json&jsoncallback=ab"> </script>
+
+    
+  </body>
+</html>
