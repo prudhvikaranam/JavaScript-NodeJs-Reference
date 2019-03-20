@@ -7,20 +7,20 @@ function easyhttp(){
 // //Tried by directly passing url into onload
 
 
-easyhttp.prototype.getPost = function(){
-  this.http.open('GET','https://jsonplaceholder.typicode.com/posts',true);
-  var self = this;
-  this.http.onload = function(){
-    if(self.http.status){
-      console.log(self.http.responseText);
-    }
-  }
+// easyhttp.prototype.getPost = function(){
+//   this.http.open('GET','https://jsonplaceholder.typicode.com/posts',true);
+//   var self = this;
+//   this.http.onload = function(){
+//     if(self.http.status){
+//       console.log(self.http.responseText);
+//     }
+//   }
 
-  this.http.send();
-}
+//   this.http.send();
+// }
 
-var http = new easyhttp();
-http.getPost();
+// var http = new easyhttp();
+// http.getPost();
 
 
 // //getting the url dynamically from Input box

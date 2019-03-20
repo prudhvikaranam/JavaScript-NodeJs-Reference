@@ -159,43 +159,47 @@ function loadCustomers(){
 
 
 
+
+
+
+
 // console.log("******************** Working With AJAX ******* JSON (Sample Chuck Norris Project) **************");
 
-// function loadCustomersFromInput(){
+function loadCustomersFromInput(){
   
-//   var xhr = new XMLHttpRequest();
-//   var input = document.getElementById('number').value;
+  var xhr = new XMLHttpRequest();
+  var input = document.getElementById('number').value;
   
-//   xhr.open('GET',`http://api.icndb.com/jokes/random/${input}`,true);
+  xhr.open('GET',`http://api.icndb.com/jokes/random/${input}`,true);
 
-//   if(input ==''){
-//     alert('Please enter a value');
-//   }else{
-//     if(xhr.readyState != 4){
-//       document.getElementById('output1').innerHTML = `<h1><img src='spinner.gif'></h1>`;
-//     }
-//   }   
+  if(input ==''){
+    alert('Please enter a value');
+  }else{
+    if(xhr.readyState != 4){
+      document.getElementById('output1').innerHTML = `<h1><img src='spinner.gif'></h1>`;
+    }
+  }   
     
-//    xhr.onload =  function(){
-//       if(this.status ===200){
-//         var output1;
-//         var customers = JSON.parse(this.responseText);
-//         customers.value.forEach(function(cust){
-//           output1+= `<h5>
-//             ${cust.id}<br>       
-//             ${cust.joke}<hr>
-//           </h5>`
-//         }
-//         )
-//       }
+   xhr.onload =  function(){
+      if(this.status ===200){
+        var output1;
+        var customers = JSON.parse(this.responseText);
+        customers.value.forEach(function(cust){
+          output1+= `<h5>
+            ${cust.id}<br>       
+            ${cust.joke}<hr>
+          </h5>`
+        }
+        )
+      }
       
-//       document.getElementById('output1').innerHTML = output1;
-//   }
-//     xhr.onerror = function(){
-//       console.log('Some error occured');
-//     }  
-//   xhr.send();
-// }
+      document.getElementById('output1').innerHTML = output1;
+  }
+    xhr.onerror = function(){
+      console.log('Some error occured');
+    }  
+  xhr.send();
+}
 
 
 
@@ -248,6 +252,9 @@ function loadCustomers(){
 
 
 
+
+
+
 // ************************************Callbacks with loading data ASynchronusly
 
 
@@ -286,7 +293,7 @@ function loadCustomers(){
 
 // var http = new easyhttp();
 
-// //Fetch the Details of API by passing the link in the input field
+//Fetch the Details of API by passing the link in the input field
 
 // function load(){
 //   var link = document.getElementById('loadTheLink').value;
@@ -526,7 +533,7 @@ function loadCustomers(){
 //   .then(function(response){ //these .then tells that we got successed in fetching some file from fetch and goes to next .then, if it gets rejected in fetchinig the data these .then will be ignored and it directly goes to .catch hence thowing the error
 //      return response.text();
 //   })
-//   .then(function(data){ //these .then tells that OK sicnce we got some succcessed in fetching we will output the data
+//   .then(function(data){ //these .then tells that OK sicnce we got  succcessed in fetching we will output the data
 //      console.log(data);
 //   })
 //   .catch(function(err){// these executes if 1st .then fails in fetching the data
@@ -652,11 +659,8 @@ function loadCustomers(){
 // arrowFunction1();
 
 
-
-
-// console.log("************ASYNC/AWAIT (ES7)**********");
-var arrowFunction1 = () => console.log('Hello These is also arrow function');
-arrowFunction1();
+// var arrowFunction1 = () => console.log('Hello These is also arrow function');
+// arrowFunction1();
 
 // const sayHello = function() {
 //   console.log('Hello');
@@ -688,7 +692,7 @@ arrowFunction1();
 
 // sayHello('Brad', 'Traversy');
 
-const users = ['Nathan', 'John', 'William'];
+// const users = ['Nathan', 'John', 'William'];
 
 // const nameLengths = users.map(function(name) {
 //   return name.length;
@@ -700,6 +704,73 @@ const users = ['Nathan', 'John', 'William'];
 // });
 
 // Shortest
-const nameLengths = users.map(name => name.length);
+// const nameLengths = users.map(name => name.length);
 
-console.log(nameLengths);
+// console.log(nameLengths);
+
+
+
+// console.log("************ASYNC/AWAIT (ES7)**********");
+
+
+// Needs to be checked
+
+
+
+
+
+
+
+
+// console.log("************Error Handling with TRY and CATCH **********");
+
+// Basic syntax
+
+// try{
+//   myFunction()
+// }catch(error){
+//   console.log(error);       //Will throw an error as myFunction is not received
+// }
+
+
+
+// function myFunction(){
+//   console.log('Sucess');
+// }
+
+var user = {email: 'JohnDoe@gmail.com'};
+
+try{
+  // myFunction();
+  if(!user.name){
+    // throw "User not found";
+    throw new SyntaxError('User has no name');
+  }
+}catch(error){
+  // console.log('Error occured');
+  // console.log(`Error occured: ${error.message}`);
+  // console.log(error); 
+  // console.log(error.message);
+  // console.log(error.name);  
+  // console.log(error instanceof ReferenceError);
+  // console.log(error instanceof TypeError); 
+}finally{
+  console.log('Finally Runs regardless of result');
+}
+
+// console.log('Programs continues to executes');
+
+
+
+// something();
+// console.log('These call will fail as something is not defined');
+
+
+
+// console.log("************Regular Expressions **********");
+
+let re;
+re = /hello/;
+
+console.log(re);
+console.log(re.source);
