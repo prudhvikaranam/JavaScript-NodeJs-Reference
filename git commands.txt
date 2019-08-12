@@ -15,8 +15,13 @@ git ls-files // shows files in the repository
 
 git remote rm origin  // removes current repository form
 
+git branch branch_Name //  creates a new branch
 
+git checkout branch_Name // creates and goes into the branch
 
+git branch -d branch_Name // deletes a branch
+
+git branch -m oldBranchName NewBranchName // Renames a branch
 
 
 
