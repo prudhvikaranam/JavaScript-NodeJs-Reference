@@ -1,36 +1,44 @@
 ********GIT COMMANDS*******
 
-git config --global user.name "Mona Lisa" 
-git config --global user.email "Mona Lisa"
+git config --global user.name "Prudhvi teja" 
 
-git config user.name // shows current user name
-   
-git remote add origin path // to add repository
+git config --global user.email "prudhvikaranam@gmail.com"
+
+git config user.name                            \\ shows current user name
+
+git remote add origin path                       \\ to add repository
+
+git remote show origin                            \\ shows the origin which we are in
+
+git remote rm origin                               \\ removes current repository 
+
+git add filename.html                               \\ to add file to staging area
+
+git rm --cached filename.html                         \\ to remove file from staging area
+
+git commit -m 'commit message'                        \\ committing code to repo
+
+git log                                               \\ show history of commits
+
+git branch                                             \\ shows all the branches along with                                                             the current branch we are in
+
+git branch branch_Name                                 \\  creates a new branch
+
+git checkout branch_Name                               \\ goes into the branch_Name if                                                                 created or creates and goes into                                                                the branch
+
+git branch -d branch_Name                             \\ deletes a branch to delete locally
+
+git push origin --delete NewBranchName                  \\   to delete a branch remotely
+
+git branch -m oldBranchName NewBranchName               \\ Renames a branch
 
 git push -u origin master
 
-git remote show origin // shows the origin which we are
-
-git ls-files // shows files in the repository
-
-git remote rm origin  // removes current repository form
-
-git branch branch_Name //  creates a new branch
-
-git checkout branch_Name // creates and goes into the branch
-
-git branch -d branch_Name // deletes a branch
-
-git branch -m oldBranchName NewBranchName // Renames a branch
+git ls-files                                               \\ shows files in the repository
 
 
 
-
-
-*************** UseFul Angular commands ************
-
-
-(click) = "onshowUsers()"
+ 
 
 
 
@@ -38,20 +46,18 @@ git branch -m oldBranchName NewBranchName // Renames a branch
 
 ********LINUX COMMANDS************
 
-
-mkdir testing\ with\,\ space      //make a with space
-
-
-
-
+to create a folder with spaces  : mkdir sample\ test\ file
+to delete folder                : rmdir sample\ test\ file
+to create file                  : touch filename.txt
+to see hidden files             : ls -a
 
 
+********Windows COMMANDS************
+
+To create a empty file          : type nul > file.txt
 
 
-
-
-
-
+-----------------------------------------------------------------------------------------------
 
 <button id="buttonZ">Click</button>
 <div id="output4"></div>

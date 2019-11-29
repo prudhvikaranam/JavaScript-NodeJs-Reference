@@ -1,134 +1,345 @@
-// var job;
-// console.log(job);
+// ************************************************Ternary and switch Operators 
+// ***********************Ternary
+/*
+var name = 'John' , age = 16;
+age >=18 ? console.log(`${name} can drink beer`) : console.log(`${name} cannot drink beer since he is still ${age} years old`)
 
-// var job1 = null;
-// console.log(job1); 
+var drink = age>=18 ? 'beer' : 'milk'; // assiging different values to a variable;
+console.log(age >=18 ? `${name} can drink ${drink}` : `${name} can drink ${drink}`);
+*/
 
-// // var btn = document.getElementById('btn');
 
-// // console.log(btn.innerText);
+// ***********************Switch
+/*
+var teaches = 'teacher';
 
-// function onClickbtn(e){
- 
-//   if(btn.innerHTML == "Click Me"){
-//     btn.innerHTML = "Hey don't click me"
-//   }else{
-//     btn.innerHTML = "Click Me";
+switch(teaches){
+  case 'teacher' : case 'instructor' : console.log('teacher');break; // we can even have two case's like above to                                                                          emit same value for both cases
+  case 'driver' : console.log('drives');break;
+  case 'salesperson' : console.log('sales');break;
+  default : console.log('unknown');
+}
+*/
+
+/*
+age = 45;
+
+var teaches = 'teacher';
+console.log(typeof(teaches) === 'string');
+
+switch(true){
+  case age >= 10 && age < 18 : console.log('boy');break;
+  case age >= 18 && age < 22: console.log('teenager');break;
+  case age >= 22 && age < 40: console.log('young');break;
+  default : console.log('man');
+}
+*/
+
+/*
+var name , teaches = 'teacher';
+
+switch (teaches) {
+  case 'teacher' : name = 'JohnTeacher';break;
+  case 'driver' : name = 'Johndriver';break;
+  case 'desinger' : name = 'Johndesinger';break;
+  default : name = 'unknown';
+}
+console.log(name);
+*/
+// ************************************************Ternary and switch Operators ends
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ************************************************Truthy and Falsy and Equal Operator
+
+// This will be handy if we want to check any variablle is defined or not
+/* 
+var height = ' ';
+if(height){
+  console.log('defined');
+}else {
+  console.log('undefined');
+}
+*/
+/*
+var width = 0;
+if(width){
+  console.log('defined');
+}else{
+  console.log('undefined');
+}
+*/
+// ************************************************Truthy and Falsy and Equal Operator ends
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ************************************************Functions
+
+// Functions help not to repeat same code again (DRY principal)
+/*
+function calculateAge(year){
+  return new Date().getFullYear() - year;
+}
+console.log(calculateAge(1991));
+*/
+// Function used in another function 
+/*
+function personAge(name,age){
+  var ageCalculated = calculateAge(age);
+  return `Hey ${name} you are ${ageCalculated} years old`;
+}
+console.log(personAge('Prudhvi',1992));
+*/
+/*
+function calculateAge(year){
+return new Date().getFullYear() - year;
+}
+function retirement(name,age){
+ var ageCalculated = calculateAge(age);
+ var retirement = 60 - ageCalculated;
+ if(retirement > 0){
+  console.log(`${name} retires in ${retirement}`);
+ }else{
+  var retiredYears = Math.abs(retirement);
+  console.log(`${name} has already retired ${retiredYears} years back`)
+}
+}
+
+retirement('John' , 1940);
+*/
+
+// ************************************************Functions ends
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ************************************************Functions Expressions and declaration
+/*
+      var functionExpression = function(job,name){
+        switch(job){
+          case 'teacher' : return `${name} teaches`; //here we no need to using break since we have return statement 
+          case 'driver' : return `${name} drives`;
+          default : return `unknown`;
+        }
+      }
+
+      var result = functionExpression('driver','John');
+      console.log(result);
+ */
+// ************************************************Functions Expressions and declaration ends
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ************************************************Array 
+
+//  var array = ['John','Jane','James'];
+//  var array = new Array('John','Jane','James'); // Another way of creating array
+
+// array.push('Thomas'); // add to end
+// array.unshift('Doe'); // add at the start
+// array.shift(); // removes first element
+// array.pop(); // removes last element
+
+//  console.log(array);
+
+//  array[5] = 'Thomas'; //adds to the  5
+//  console.log(array);
+//   array[array.length] = 'Thomas'; //add to the last  element considers based on the length of the array
+//  console.log(array);
+
+//  console.log(array.indexOf('John'));
+
+// NOTE : array.push() returns length of the array i.e., try this --> var arr = array.push('SomeThign') console.log(arr);
+
+
+// ************************************************Array ends
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ************************************************Objects and properties
+
+// Object literals
+/*  
+var john = {
+  name : 'John Doe',
+  age : 26,
+  country : 'USA',
+  familyMembers : ['Jane','Bob','Elly']
+}
+console.log(john.familyMembers.indexOf('Bob'));
+console.log(john['name']);
+*/
+
+// new Object Syntax
+/*
+var jane = new Object();
+jane.name = 'Jane Smith';
+jane.age = 26;
+jane['country'] = 'Europe';
+jane['familyMembers'] = ['Jane','Bob','Elly'];
+console.log(jane);
+*/
+
+// ************************************************Objects and properties ends
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ************************************************Objects and methods
+
+// functions defined inside object is referred as method
+/*
+var jane = {
+  name : 'Jane',
+  yearOfBirth : 1992,
+  country : 'Canada',
+  familyMembers : ['John','Doe','Smith'],
+  this : this, // Here this refers to window object
+  calculateAge : function(){
+  this.age = 2019 - this.yearOfBirth; // we can create a key(property) by using this, here this refers to the object i.e.,                                          Jane
+  console.log(this); // Here this refers to current Object (i.e., entire jane object) since it is inside function which is                          inside an object
+  console.log(this.name); // jane.name
+
+  }
+}
+jane.calculateAge();
+console.log(jane);
+console.log(jane.this);
+
+*/
+
+// ************************************************Objects and methods ends
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ************************************************Loops and Iterations
+
+
+// var array = ['Jane',1992,'India'];
+
+// for(let i = 0; i < array.length; i++){
+//   console.log(array[i])
+// }
+
+
+// for(let i = 0; i < array.length; i++){
+//   if(typeof array[i] !== 'string'){
+//     continue //if it is not string then it will not go to the next statement ( i.e.,  console.log statemen) and starts                continuing the loop skipping the next line
 //   }
-//   // console.log(e);
+//   console.log(array[i]);
 // }
 
-
-// function Person(name,age){
-//   this.name = name;
-//   this.age = age;
-//   this.years = function(){
-//     return 2019 - this.age;
-//     console.log(this);
+// for(let i = 0; i < array.length; i++){
+//   if(typeof array[i] !== 'string'){
+//     break; //if it is not string then it will break the execution and the loop as well
 //   }
-//   return this;
-// }
-// console.log(Person('Teja',25).years());
-
-
-// Person.prototype.years = function(){
-//   return 2019 - this.age;
-  //  console.log(new Date().getFullYear() - this.age);
-// }
-
-// Person.prototype.lastName = 'Doe';
-
-// var john = new Person('John',1997);
-// console.log(`${john.name} is ${john.years()} years old`);
-// // john.years();
-
-// var x  = [0,8,3,7];
-// var y = [1,108,3,8];
-// var z = x;
-// console.log(x);
-// console.log(x.indexOf(7));
-// var z = x.concat(y).sort((a,b) => {
-//   return a -b;
-// })
-
-
-// console.log(z);
-// // console.log(x.forEach((a) => {
-// //   console.log(a);
-// // }));
-
-// function Person(name,emp){
-//   return this;
-// }
-// var a = Person();
-// console.log(a);
-
-
-
-
-
-
-
-
-// --------------------Calling function inside another function
-
-
-// function calculateAge(yearOfBirth){
-//   return 2019 - yearOfBirth
-// }
-
-// function retirement(year,firstName){
-//   // var age = new Date().getFullYear() - year ;
-//   // var yearsLeft = 65 - age;
-//   var age = calculateAge(year);
-//   var yearsLeft = 65 -age;
-//   var name = firstName;
-//   return (`Hey ${name} your have ${yearsLeft} years for your retirement`)
-// }
-// console.log(retirement(1992,'Teja'));
-
-
-
-
-
-
-
-
-
-
-
-
-// -----------------------Switch Statements
-
-// function profile(job,firstName){
-//   switch(job){
-//     case  'Teacher' :
-//     return `${firstName}  teaches`;
-//     case 'Designer' : 
-//     return `${firstName}  designs`;
-//     case 'developes' : 
-//     return `${firstName}  develops`;
-//   }
-// }
-
-// var show = profile('Designer','john');
-// console.log(show);
-
-
-// function profile(job,firstName){
-//   if(job === 'Teacher'){
-//     return `${firstName}  teaches`;
-//   }
-//   else if(job === 'Designer'){
-//     return `${firstName}  designs`;
-//   }
-//   else{
-//     return `${firstName}  does something else`;
-//   }
+//   console.log(array[i]);
 // }
 
 
 
+//Looping backwards
+// for(let i = array.length -1; i >= 0; i--){
+//   console.log(array[i]);
+// }
+
+// array.forEach(data => console.log(data));
+
+// ************************************************Loops and Iterations ends
 
 
 
@@ -143,67 +354,43 @@
 
 
 
-// -------------------------------------Primitives and Objects --------------------------------------- 
 
-// Primitives (strings,numbers,booleans,null and undefined) : Primitives stores the values in the variables,
 
-// Objects : when an object is created it is stored in some memory and variable gets the values from that memory, so data in the object is not directly stored in the variable. Next time when variable is called or instantiated data of the object is retrieved from that memory
 
-// Primitives
 
+// ************************************************Hoisting 
+
+
+// In Function context: Hoisting works only in function declarations and not in function expressions
+
+
+// calculateAge(1992); // works since it is function declaration
+// function calculateAge(year){
+//   console.log(2019 - year);
+// }
+
+
+
+// calculateSum(2); // will not work since function is an expression
+// var calculateSum = function(number){
+//   console.log(10 + number)
+// }
+
+// In variable context : 
+
+// console.log(a); // undefined
 // var a = 23;
-// var b = a;
 
-// a = 41;
-// console.log(a);
-// console.log(b);
-
-
-
-//Objects
-
-// var obj1 = {
-//   name : 'Teja',
-//   age : 27
-// }
-
-// var obj2 = obj1;
-
-// console.log(obj1.name);
-// console.log(obj2.name);
-
-// // obj1.name = 'John';
-// obj1 = {
-//   name : 'Brad',
-//   age : 45
-// }
-// obj2 = obj1
-// console.log(obj1.name);
-// console.log(obj2.name);
-
-
-
-// Same above in function scope
-
-// var age = 27;
-
-// var Person = {
-//   name : 'John',
-//   state : 'Texas'
-// }
-
-// function change(a,b) {
-//   a = 30;
-//   b.state ='San Fransico';
+// function foo(){
+//   console.log(a); // undefined
+//   var a = 65;
 //   console.log(a);
 // }
 
-// change(age,Person);
+// foo();
+// console.log(a);
 
-// console.log(age); //27
-// console.log(Person.state); //San Fransico
-
-
+// ************************************************Hoisting  ends
 
 
 
@@ -212,71 +399,88 @@
 
 
 
-// -------------------------Passing function as an arguments-----------------------
 
 
-// Passing functions as arguments (callback function) : we pass one function into another function in a situations where we have some logic in one function which we want to execute and call in another function
+// ************************************************Object Inheritance and prototype chain
 
-// ex : function first(fn){
-        // some logic
+// Function constructor
+// function Person(name,age){
+//   this.name = name;
+//   this.age = age;
+//   // console.log(this);
 // }
 
-  // function second(){
-  //   return some logic
-  // }
-
-  // first(second);
-
-
-  // in the above example logic in the second function will be executed when first function is called. (first function is called by passing second function as a argument)
-
-// var years = [1992,1997,1965,2011,1865];
-
-// function arrayCalculator(arr , fn){
-//   var array = [];
-//   for(var i = 0; i < arr.length; i++){
-//     array.push(fn(arr[i]));
-//     // console.log(arr[i]);
-//   } 
-//   return array;
+// Person.prototype.calculateAge = function(){
+//   console.log(2019 - this.age);
 // }
 
-// function calculateAge(el){
-//   return 2019 - el
+
+
+// var jane = new Person('Teja',1992);
+// console.log(jane);
+// jane.calculateAge();
+// // console.log(jane.hasOwnProperty('age'));
+
+// var john = new Person('John',1993);
+// console.log(john);
+// john.calculateAge();
+// ************************************************Object Inheritance and prototype chain  ends
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// *******************************************Passing fucntions as arguments (Callbacks)
+
+
+// var yearsArray = [1990,1991,1992,1993,1994];
+
+// // var concatArray = ['d','a','b','c',1]
+// // console.log(yearsArray.concat(concatArray).sort());
+
+
+// function calculateAge(array,func){
+//   var arrayResponse = [];
+//   array.forEach((element,i) => {
+//     arrayResponse.push(func(element));
+//   });    
+//   return arrayResponse;
 // }
 
-// // var result = arrayCalculator(years,calculateAge); //[27, 22, 54, 8, 154]
-// // console.log(result);
-
-// function fullAge(el){
-//   return el >= 18;
+// function callBack(year){
+//   var result = new Date().getFullYear() - year;
+//   return result;
 // }
 
-// // var isFullAge = arrayCalculator(result,fullAge); //is same as below
-
-// var isFullAge = arrayCalculator(arrayCalculator(years,calculateAge),fullAge);
-
-
-// // console.log(result);
-// console.log(isFullAge);
+// var totalResult = calculateAge(yearsArray,callBack); // here we are not calling function because                                                         fucntion should be executed later as an                                                              argument
+// console.log(totalResult);
+// totalResult.forEach(data => {
+//   console.log(data);
+// })
 
 
+// function higher(name,callback){
+//   callback(name);
+// }
 
-// ---------------------My example
+// function callbackfunc(argument){
+//   document.getElementById('name').innerHTML = argument;
+// }
+// higher('Prudhvi Karanam',callbackfunc);
 
-//  years = [1992,1997,1965,2011,1865];
 
-//  function calculateYears(){
-//    var array = ['Hello'];
-//    for(var i = 0; i < this.years.length; i++){
-//       array.push(2019 - this.years[i]);
-//    }
-//    return array;
-//   //  return this.years[0];
-//  }
-
-//  var result = calculateYears();
-//  console.log(result);
+// ****************************************************Passing fucntions as arguments ends
 
 
 
@@ -290,16 +494,17 @@
 
 
 
-// ------------------------ Function returning functions ------------------------------------------
 
+
+
+
+// ****************************************************Functions returning functions
 
 
 // function interviewQuestion(job){
 //   if(job === 'designer'){
 //     return function(name){
-//       for(var i = 0; i < name.length; i++){
-//         console.log(`Hey ${name[i]} what can you design`);
-//       }
+//         console.log(`Hey ${name} what can you design`);
 //     }
 //   }else if(job ===' developer'){
 //     return function(name){
@@ -313,97 +518,621 @@
 // }
 
 // var result = interviewQuestion('designer');
-// console.log(result); // Now this will return a function
-// console.log(result('John'));
-// interviewQuestion(' developer')('Jane');
+// // console.log(result); // Now this will return a function
+// // var answer = result('John');
+// // interviewQuestion(' developer')('Jane');
 
-// interviewQuestion('designer')(['Mark','John']);
-
-
+// interviewQuestion('designer')(['Mark','Smith']);
 
 
 // function sample(){
 //   return function name(name){
 //     console.log(`Hey ${name}`);
 //   }
-// }
-// var result = sample();
-// console.log(result('Doe'));
-
-
-
-
-
-
-
-
-
-// ------------------------ Immediately invoked function Expressions---------------------------------
-
-// example:
-
-// (function(name){
-//   alert(`IIFE executed ${name}`);
-// })('teja');
-
-// NON IIFE example
-
-// function name(){
-//   alert('NON IIFE executed');
-// }
-// name();
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ------------------------ Clousures---------------------------------
-
-
-// var b = 'Another something';
-// function closures(){
-//   var a = 'Something';
-//   function name(){  
-//     return a;
-//     // return b;
 //   }
-//   return name()
-// }
-// // console.log(a);
+//   var result = sample();
+//   console.log(result('Doe'));
 
-// var result = closures();
+// ****************************************************Functions returning functions ends
+
+
+
+
+
+
+
+
+
+
+
+// **************************************************** Bind, Call and apply
+
+// In all this three methods first argument passed (this) will say what should be referred, If we directly say this then it will refer to scope of this
+
+// example : 1
+// var john = {
+//   name : 'Prudhvi',
+//   age : 27,
+//   foodTimings : function(timeOfDay){
+//     var self = this;
+//     return function(){
+//       if(timeOfDay === 'Morning'){
+//         console.log(`Hey ${self.name} it is ${timeOfDay}, go and have a heavy breakfast`);
+//       }else if(timeOfDay === 'Afternoon'){
+//         console.log(`Hey ${self.name} it is ${timeOfDay}, go and have a lunch`);
+//       }else if(timeOfDay === 'Night'){
+//         console.log(`Hey ${self.name} it is ${timeOfDay}, go and have a minimum dinner`)
+//       }else{
+//         console.log(`Hey ${self.name} if your feeling hungry go and have something`);
+//       }
+//     }
+//   }
+// }
+
+// var mike = {
+//   name : 'Mike'
+// };
+
+
+// var result = john.foodTimings.call(mike,'Morning')(); // This has to be called since foodtimings is returning a function 
+
+// console.log(result);
+// // result();
+
+// var years = [1991,1937,1965,2005,1995];
+
+// // example 2 :
+// function arrayCalculator(years,callback){
+//   emptyArray = [];
+//   years.forEach(element => {
+//     emptyArray.push(callback(element))
+//   });
+//   return emptyArray;
+// }
+
+// function calculateAge(year){
+//   return new Date().getFullYear() - year;
+// }
+
+// function isFullAge(limit,ages){
+//  return ages >= limit;
+// }
+
+// var ages = arrayCalculator(years,calculateAge);
+// console.log(ages);
+
+// var fullJapan = arrayCalculator(ages,isFullAge.bind(this,20)); // Here this refers to window object
+// console.log(fullJapan );
+
+// console.log(isFullAge.bind(this,20));
+
+
+// example 3 :
+
+
+
+// function sample(){
+//   return this.name;
+// }
+
+// var emily = {
+//   name : 'Emily'
+// }
+
+// var result  = sample.bind(emily)
+
+// console.log(result());
+
+
+
+// -------------------------------------------------------bind method in Constructor and prototype
+
+
+// function Person(name){
+//   this.name = name;
+// }
+
+// Person.prototype.greeting = function(){
+//   console.log(`Hey ${this.name}, how are you?`);
+//   return function(){
+//     console.log(this);
+//   }.bind(this); // If we are not using these bind method then it will be a normal function and this will refer to window object 
+// }
+
+
+
+// Person.prototype.greeting = function(){
+//   console.log(this);
+//   console.log(`Hey ${this.name}, how are you?`);
+//   return function(){
+//     console.log(this);
+//   } 
+// }
+
+// let john = new Person('John');
+
+// john.greeting()();
+
+
+// Extras
+
+// var john = {
+//     name : 'John Doe',
+//     age : 25,
+//     presentation : function(time,style){
+//         if(style === 'formal'){
+//             console.log(`Hey ${this.name} it is ${time} and you are ${style}`);
+//         }else if(style === 'informal'){
+//             console.log(`Hey ${this.name} it is ${time} and you are ${style}`);
+//         }
+       
+//     }
+// }
+
+// john.presentation('Morning','formal')
+
+
+
+// var emily = {
+//     name : 'Emily'
+// }
+
+// var result = john.presentation.bind(emily,'Evening');
+// result();
+
+
+
+// var years = [2000,1991,1994,1782,1894];
+
+// function arrayCalc(yearspassed,callback){
+//     var newYears = [];
+
+//     yearspassed.forEach(element => {
+//         newYears.push(callback(element));
+//     });
+//     return newYears;
+// }
+
+// function calculateAge(agePassed){
+//     return 2019 - agePassed;
+// }
+
+// var res = arrayCalc(years,calculateAge);
+// console.log(res)
+
+// function fullAge(limit,el){
+//     return el >= limit;
+// }
+
+// var resu = fullAge.bind(this,20);
+// var ress = arrayCalc(res,resu);
+
+// console.log(ress);
+
+
+// var person = {
+//     name : 'John'
+// }
+
+// function namee(){
+//     console.log(this);  
+//     console.log(`Hey ${this.name}`);
+// }
+
+// namee();
+
+// var a = namee.bind(person);
+
+// a();
+
+
+// ****************************************************Bind ends
+
+
+
+
+
+
+
+// **************************************************** Slice method
+
+// var years = [
+//   {
+//     name : 'TEja',
+//     age : 27
+//   },
+//   {
+//     name : 'John',
+//     age : 30
+//   },
+//   {
+//     name : 'Mick',
+//     age : 35
+//   },
+//   {
+//     name : 'Smith',
+//     age : 27
+//   },
+// ]
+
+// a = years.slice(0,2);
+// b = years.slice(2,years.length);
+// console.log(a);
+// console.log(b);
+
+// ****************************************************Slice method ends
+
+
+
+
+// ****************************************************ES6 string methods
+
+// let firstName = 'John';
+
+// let lastName  = 'Smith';
+
+// console.log(firstName.startsWith('J')); // True
+// console.log(lastName.endsWith('h')); // True
+
+// console.log(firstName.includes('oh')); //Check if string is available
+// console.log(`${firstName} `.repeat(4)); // if we want space
+
+
+
+
+// ****************************************************ES5 this
+
+// var person = {
+//     name : 'John',
+//     age : 25,
+//     log : function(){
+//         console.log('method',this);
+//         return function(){
+//             console.log('normal function',this);
+//         }
+//     }
+// }
+
+// person.log()();
+
+
+// ****************************************************  ES6 this in arrow functions
+
+// var person = {
+//     name : 'John',
+//     age : 25,
+//     log : function(){
+//         console.log('method',this); //this will refer to person
+//         return () => {
+//             console.log('normal function',this); // Here this will refer to its surrounding this i.e., it surrounded with this which is pointing to object (person)
+//         }
+//     }
+// }
+
+// person.log()();
+
+
+// var person1 = {
+//     name : 'John',
+//     age : 25,
+//     self : this,
+//     log : () => {
+//         console.log('method',this); // Here this will refer to window because this is window (see self above)
+//         return () => {
+//             console.log('normal function',this); // Here this will refer to its surrounding this i.e., it surrounded with this which is pointing to object (window)
+//         }
+//     }
+// }
+// console.log(person1.self);
+// person1.log()();
+
+
+// function Person(name){
+//     this.name = name;
+//     this.my = function(){
+//         console.log('Method');
+//     }
+// }
+
+// Person.prototype.myFriends = function(){
+//     console.log(this);
+//     // console.log('Hey prototype',this.name);
+//     return function(){
+//         // console.log('Normal function',this.name,'asd')
+//         console.log(this);
+//     }.bind(this);
+// }
+
+// var john = new Person('John');
+// console.log(john.myFriends()());
+
+
+
+
+// ****************************************************ES6 this ends
+
+
+
+
+
+
+
+
+
+
+// ****************************************************Destructing
+
+// Helps in destructing a data structure like an object or array and Destructing helps to return multiple values
+
+
+// ES5 array
+
+// var john = ['John',25];
+
+// var name = john[0];
+// var age = john[1];
+// console.log(name);
+// console.log(age);
+
+// ES6 destructing array
+
+// let [name,age] = ['John',25];
+// console.log(name);
+// console.log(age);
+
+
+// ES6 destructing Objects
+
+
+// let obj = {
+//     firstName : 'Johnn',
+//     lastName : 'Doe'
+// }
+
+// let {firstName,lastName} = obj; // here we have create variable as same name in the object else this will not work
+
+// console.log(firstName);
+// console.log(lastName);
+
+
+
+// let {firstName : a ,lastName : b} = obj; // if we don't want to have same name then we can use like this
+
+// console.log(a);
+// console.log(b);
+
+
+// Normal way of returning multiple values
+
+// let name = 'John Doe';
+// let age = 25;
+
+
+// function hello(){
+//     return {
+//         namee : name,
+//         agee : age
+//     }
+// }
+
+// let result = hello();
+// console.log(result.namee);
+// console.log(result.agee);
+
+// using Destructing way
+
+
+// let name = 'John Doe';
+// let age = 25;
+
+
+// function hello(){
+//     a = [name,age];
+//     return a;
+// }
+// let result = hello();
+
+// console.log(result);
+
+// Another example:
+
+// function calculateAge(year){
+//     const age = new Date().getFullYear() - year;
+//     return [age, 65 - age];
+// }
+
+// let [age,retirementAge] = calculateAge(1992);
+// console.log(age);
+// console.log(retirementAge);
+
+
+
+// ****************************************************Destructing ends
+
+
+
+
+
+
+//  ****************************************************Array and methods in ES6
+
+
+// Array.from creates an new instance of old array or strings
+
+// var boxes = document.querySelectorAll('.box');
+
+// box = Array.from(boxes);
+
+// console.log(box);
+
+// boxes.forEach((element) => {
+//     element.style.color = 'white';
+// })
+
+
+
+// var arr = ['John','Smith','Doe','Jole','Jane','xyz'];
+
+// for(let i = 0;i < arr.length; i++){
+//     if(arr[i] === 'Doe'){
+//         continue;
+//     }
+//     console.log(arr[i]);
+   
+// }
+
+
+// ****************************************************for of loop
+
+// for of loop is the combination of forEach/map along with for loop.
+// In forEach/map loops we can't use continue or break statements but in for loop we can use
+// if we want to achieve this we can use for of loop, example below
+// we can write less code when compared to for loop
+
+
+
+// Normal for loop
+
+// var boxes = document.querySelectorAll('.box');
+// var box5 = Array.prototype.slice.call(boxes);
+// for(let i = 0; i < box5.length; i++){
+//     if(box5[i].className === 'box blue'){
+//         continue;
+//     }
+//     box5[i].textContent = 'I changed to blue';
+// }
+
+
+
+// for of loop (ES6)
+
+
+// var boxes = document.querySelectorAll('.box');
+// var box6 = Array.from(boxes);
+
+// for(let arr of box6){
+//     if(arr.className.includes('blue')){
+//         continue;
+//     }
+//     arr.textContent = 'I changed to blue';
+// }
+
+
+// **************************************************** for of loop ends
+
+
+
+// ****************************************************findIndex and find
+
+// Find index method helps in finding the index easily. Find index method has a callback function
+
+// ES5
+
+// var ages = [14,17,18,22,10];
+
+// console.log(ages.indexOf(18));
+
+// var full = ages.map((curr) => {
+//   return curr > 18; 
+// })
+
+// console.log(full.indexOf(true));
+// console.log(ages[full.indexOf(true)]);
+
+
+// ES6
+
+// var ages = [14,17,18,22,10];
+
+
+// var result = ages.findIndex((curr) => {
+//   return curr > 18;
+// })
+
+// console.log(result);
+// console.log(ages[result]);
+//if we don't want to find index and directly want a value more than 18 we can simple use find method even this also has callback function
+
+// var result = ages.find((ele) => {
+//   return ele > 18;
+// })
+
 // console.log(result);
 
 
+// ****************************************************findIndex and find ends
 
-// function print(){
-//   document.write(calculateSum(10,20));
+
+
+
+
+
+
+
+// **************************************************** Spread operator
+
+// function addFourAges(a,b,c,d){
+//   console.log(a + b + c + d);
 // }
 
-// function calculateSum(first,second){
-//   return first + second;
-// }
-// print();
+// addFourAges(1,2,3,4);
+ 
+// If we want to pass array into addFourAges function we have to do below
+
+// ES5 
+
+// var array = [1,2,3,4];
+
+// addFourAges.apply(this,array); // or we can use below (null)
+
+// addFourAges.apply(null,array);
+
+// ES6
+
+// var array = [1,2,3,4];
+
+// addFourAges(...array);
+
+// We can also use this to join two arrays
+
+
+// var first = ['John','Jane','Jonas'];
+
+// var second = ['Doe','Jos','Smith'];
+
+
+// ES5 (Here if we want to add any thing in between these two arrays we can do but using spread operator we can do)
+
+// var a = first.concat(second);
+// console.log(a);
+
+
+// ES6
+
+// var a = [...first,...second];
+// console.log(a);
+
+
+// we can add anything in between these two arrays
+
+// var a = [...first,'Lilly',...second];
+
+// console.log(a);
+
+
+// **************************************************** Spread operator ends
 
 
 
 
-// function onClickbtn(e){
-//   window.print();
-//   console.log(e.target.innerHTML);
-// }
 
-// var name  = "nnasjdnsandaslnksandksaldnklsandklasnd";
-// if(name.indexOf('z') > 1){
-// 	alert('YES');
-// }else{
-// 	alert('NO');
-// };
+
+
+// **************************************************** Rest 
+
+
+
+
+
+
+// **************************************************** Rest ends
