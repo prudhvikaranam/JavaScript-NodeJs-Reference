@@ -1,0 +1,572 @@
+-------------------------THIS-------------------------------
+
+this keyword in function scope will be the global object. Even if we use this inside a function which is inside of an 		                 another function also this will refer to global object
+this keyword inside just an object refers to global object (when not initiating via new keyword) ..
+this keyword inside fucntion of an object refers to the object.
+
+new keyword creates an new instance of the object which we passed
+when we use new keyword an empty object is created and when a Person function is assigned to it then this keyword will refer to that function name (ie. Person here)
+
+if we use this in inner function (i.e., inside of an another function) then also this refers to global object
+
+example: try below
+
+console.log(this);
+
+first();
+
+function first(){
+  console.log(this);
+  second();
+  function second(){
+    console.log(this);
+  }
+}
+
+
+Simple Terms : When an object is created using new keyword THIS will always refer to that function (i.e Object (Person))
+								where in normal object THIS will refer to global but if we have function (method) inside object then this inside that function will refer to that object.
+								Normal function this will refer to global objects
+
+
+this in object will only refer to object if it is called inside a method(function) or else it will refer to global
+example : 
+
+var obj = {
+	name : 'Teja',
+	fullName : this, //Here this refers to global because it is not inside a method
+	lastName : function(){
+		return this //Here this refers to obj because it is used inside a method
+	}
+}
+console.log(obj.fullName);  
+console.log(obj.lastName()); 
+
+
+this keyword in the regular function call refers to window object and in method it refers to the object in which method is, try running below code.
+
+var john = {
+  name : 'John',
+  year : 1990,
+  calculateAge : function(){ //This is a method (since it is inside of an object) hence this refers to john object
+    console.log(this);
+    function regularCall(){ // This is a normal regular function call hence this refers to window object
+      console.log(this);
+    }
+    regularCall()
+  }
+}
+
+john.calculateAge();
+
+this variable is only assigned a value when the object calls the method run below code. we have also tried method borrowing in the code.
+
+var john = {
+  name : 'John',
+  year : 1990,
+  calculateAge : function(){ //This is a method (since it is inside of an object) hence this refers to john object
+    console.log(this);
+    function regularCall(){ // This is a normal regular function call hence this refers to window object
+      console.log(this);
+    }
+    regularCall()
+  }
+}
+
+john.calculateAge();
+
+
+var mike = {
+	name : 'Mike',
+	year : 1992.
+}
+
+// below is the code for method borrowing, (we are not calling john calculateAge method we are just assigning hence not () required)
+
+mike.calculateAge = john.calculateAge;
+
+mike.calculateAge(); // here this in the calculateAge() refers to mike object hence it tells that this assigns a value only when object calls a method
+
+
+// Example which shows scope of this when used inside a method and in a normal function
+ var obj = {
+   name : 'Teja',
+   method : function(callback){
+      console.log(this);
+      return function callback(){
+        console.log(this);
+      }
+   }
+ }
+
+ obj.method()();
+
+
+In arrow functions this will refer based on the surrounding this, refer examples in script.js file to know more
+
+---------------------------------------------------THIS ends------------------------------------------
+
+
+
+
+
+
+** A variable declared inside a function cannnot be accessed outside the function, but variable declared outside function is accessible inside the function
+
+
+
+
+
+
+---------------------------------------------
+
+
+
+
+
+
+
+new keyword creates memory allocation while creating objects.
+
+
+
+
+
+
+------------------------------------------------
+
+
+
+
+
+
+
+Variables created without a declaration keyword (var, let, or const) are always global, even if they are created inside a function.
+
+
+
+
+
+
+-----------------------------------------------------------------------
+
+
+
+
+
+
+
+Prototype is like static method in the class
+it helps in memory utilization and call the method (used in prototype) whenever required or called.
+
+
+
+
+
+
+
+---------------------------------------
+
+
+
+
+
+
+Even arrays are having prototypes
+forEach, indexOf and length are the methods and properties which we inherit from prototype method
+
+
+
+
+
+
+
+
+------------------------------------------
+
+
+
+
+
+
+
+Function Expression //produces immedate result where as function declaration do not
+											 see video function expressions and statement last 30 seconds
+
+var name = function(){
+
+}
+
+example: 
+var name1 = function(){
+  console.log('This is a function expression');
+}
+
+console.log(name1());
+
+
+
+Function Declaration
+
+function name(){
+
+}
+
+
+
+
+
+
+
+----------------------------------------
+
+
+
+
+
+
+
+Primitives : numbers, Booleans, strings, null and undefined
+and remaining everything is an object (arrays, functions etc)
+
+Passing functions as an arguments to another function (callbacks)
+
+Returning function from another functions
+
+IIFE (immediately invoked function Expressions) : Used for data privacy 
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+
+
+
+
+
+
+var name  = "nnasjdnsandaslnksandksaldnklsandklasnd";
+if(name.indexOf('z') > 1){
+	alert('YES');
+}else{
+	alert('NO');
+};
+
+
+
+
+
+
+
+
+--------------------------------------------------------
+
+
+
+
+
+
+
+
+Closures
+
+In closures variables,arguments decalared in outer function can be accessed in inner fucntion
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+
+
+
+
+
+
+Lexical Scoping : a fucntion that is in another function  gets access to the scope of the outer function
+
+
+A lexical scope in Javascript means that a variable defined outside a function can be accessible inside another function defined after the variable declaration. 
+
+
+
+
+
+
+
+--------------------------------
+
+
+
+--------------------------------------------Call, bind and apply -----------
+
+
+This are used for borrowing methods, this are the in built functions in fucntion prototype
+
+In JavaScript, you can borrow methods from other objects to build some functionality without inheriting all their properties and methods.
+
+JavaScript provides two methods for all function objects, call() and apply(), that allow a function to be invoked as if it were a method of another object. Here's an example:
+
+apply can be used when variables or arguments is expecting multiple values i.es we can pass them as arrays
+
+
+function functionName(a,b){
+  console.log(a + b);
+}
+
+array = [1,2]
+
+functionName.apply(this,array);
+
+var john = {
+  name : 'Prudhvi',
+  age : 27,
+  foodTimings : function(timeOfDay){
+    var self = this;
+    return function(){
+      if(timeOfDay === 'Morning'){
+        console.log(`Hey ${self.name} it is ${timeOfDay}, go and have a heavy breakfast`);
+      }else if(timeOfDay === 'Afternoon'){
+        console.log(`Hey ${self.name} it is ${timeOfDay}, go and have a lunch`);
+      }else if(timeOfDay === 'Night'){
+        console.log(`Hey ${self.name} it is ${timeOfDay}, go and have a minimum dinner`)
+      }else{
+        console.log(`Hey ${self.name} if your feeling hungry go and have something`);
+      }
+    }
+  }
+}
+
+var mike = {
+  name : 'Mike'
+};
+
+john.foodTimings.call(mike,'Afternoon')(); // when this is invoked this in the invloked methods refers to mike
+
+
+john.foodTimings.apply(mike,['Afternoon'])(); // apply is same as call method only difference is second argument will be array
+
+// Bind --> Bind method does not call a function immediately but instead it generates a copy of the function i.e., we can save this some where and use it later, It also allows to preset arguments. 
+
+var result = john.foodTimings.bind(mike,'dsad')(); // Here we are not passing third argument, we are just presetting (default value) the 1st and second values, This might be useful in a case where we have to pass same arguments multiple times.
+Now we can call third arguments like below.
+result('Chips')();
+
+
+It always returns a function.
+var result = john.foodTimings.bind(mike,'dsad','Chips')();
+console.log(result); // Here though we are all the necessary functions above it still returns a function
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+
+
+
+
+------------------------------------------------------
+
+
+
+
+
+
+
+Currying:
+
+Currying is a technique in which we create a function based on another function but with some preset parameters 
+
+
+
+
+
+
+------------------------------------------------------
+
+
+
+---------------------------------Encapsulation--------------------
+
+
+
+
+
+
+
+Encapsulation includes the idea that the data of an object should not be directly exposed.
+So data Encapsulation allows us to hide the implementation details of a specific module from the outside scope so that we can only expose a public interface which is sometimes called an API.
+
+
+
+
+
+
+
+
+---------------------------------Encapsulation ends--------------------
+
+
+---------------------------------Module Pattern--------------------
+
+
+
+
+
+
+“Modules” refers to small units of independent, reusable code. 
+
+
+Module pattern (including in IIFE's IIFE's creates data privacy i.e., outside functions, objects etc cannot access this declarations).
+
+
+Module patterns returns an object containing all the functions in the module. or In Module pattern we need to return an object (In which we have the functios).
+example: var modularpattern = (function() {
+    // your module code goes here
+    var sum = 0 ;
+
+    return {
+        add:function() {
+            sum = sum + 1;
+            return sum;
+        },
+        reset:function() {
+            return sum = 0;    
+        }  
+    }   
+}());
+alert(modularpattern); // This returns an objects with the functions available in modularpattern.
+
+
+
+
+public - exposing them to public that may be another functions or module
+
+
+
+
+
+
+
+---------------------------------Module Pattern ends--------------------
+
+
+
+
+
+
+
+---------------------------------ES6--------------------
+
+
+
+
+
+---------------------------------Let and const --------------------
+
+
+let and const follows block level scopes whereas var follows function scope
+
+block level : anything which is declared inside curly braces {}
+
+
+---------------------------------Let and const ends--------------------
+
+
+
+
+let firstName = 'John';
+
+let lastName  = 'Smith';
+
+console.log(firstName.startsWith('J')); // True
+console.log(lastName.endsWith('h')); // True
+
+console.log(firstName.includes('oh')); //Check if string is available
+
+console.log(firstName.repeat(4)); // repeats firstName 4 times
+
+console.log(`${firstName} `.repeat(4)); // if we want space
+
+
+
+
+
+--------------------------------- Spread Operator --------------------
+
+
+Spread Operator is used to pass arrays when variables or arguments expects multiple values
+It is used to join arrays as well
+
+
+it is used as ...
+
+
+
+
+--------------------------------- Spread Operator ends --------------------
+
+
+---------------------------------ES6 ends--------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SBI (object)
+state -- properties ****(mandatory)
+behaviour -- methods/functions ****(mandatory)
+identity -- ref name
+
+
+
+How to check if an array or not
+
+var a = [1,7,8,10,2,14];
+typeof a;
+"object"
+
+var a = [1,7,8,10,2,14];
+Array.isArray(a);
+true
+
+
+
+
+
+
+
+
+
+
+//Asynchoronous Javascript
+It is concept where some code keeps running in the background while our main code still keeps executing
+example : Requesting the data from Remote Server like API

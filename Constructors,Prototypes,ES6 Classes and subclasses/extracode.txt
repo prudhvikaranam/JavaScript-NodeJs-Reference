@@ -1,0 +1,40 @@
+
+
+
+
+
+
+
+
+
+// function Book(name,company,telephone){
+//   this.name = name;
+//   this.company = company;
+//   this.telephone = telephone;
+// }
+
+// // UI constructor
+// function UI(book){
+//    this.book = book;
+
+// }
+// //prototype for UI and passing parameters as book1
+// // UI.prototype.addBookToList = function(book1){
+// //   console.log(book1);
+// // }
+
+// document.getElementById('form').addEventListener('submit',
+//   function(e){
+//     var name = document.getElementById('name').value,
+//      company = document.getElementById('company').value,
+//      telephone = document.getElementById('telephone').value;
+
+//     //When button is clicked instantiate Book and UI constructor
+//     var book = new Book(name,company,telephone);
+//     var ui = new UI(book);
+//     // and add book to ui prototype
+//     // ui.addBookToList(book);
+//     console.log(ui.book);
+//     e.preventDefault();
+//   }
+// );
