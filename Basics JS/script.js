@@ -401,6 +401,26 @@ console.log(jane.this);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ************************************************Object Inheritance and prototype chain
 
 // Function constructor
@@ -425,6 +445,12 @@ console.log(jane.this);
 // console.log(john);
 // john.calculateAge();
 // ************************************************Object Inheritance and prototype chain  ends
+
+
+
+
+
+
 
 
 
@@ -498,6 +524,17 @@ console.log(jane.this);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 // ****************************************************Functions returning functions
 
 
@@ -534,6 +571,18 @@ console.log(jane.this);
 //   console.log(result('Doe'));
 
 // ****************************************************Functions returning functions ends
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -665,7 +714,7 @@ console.log(jane.this);
 //         }else if(style === 'informal'){
 //             console.log(`Hey ${this.name} it is ${time} and you are ${style}`);
 //         }
-       
+
 //     }
 // }
 
@@ -734,6 +783,19 @@ console.log(jane.this);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 // **************************************************** Slice method
 
 // var years = [
@@ -765,6 +827,20 @@ console.log(jane.this);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ****************************************************ES6 string methods
 
 // let firstName = 'John';
@@ -776,6 +852,14 @@ console.log(jane.this);
 
 // console.log(firstName.includes('oh')); //Check if string is available
 // console.log(`${firstName} `.repeat(4)); // if we want space
+
+
+
+
+
+
+
+
 
 
 
@@ -794,6 +878,14 @@ console.log(jane.this);
 // }
 
 // person.log()();
+
+
+
+
+
+
+
+
 
 
 // ****************************************************  ES6 this in arrow functions
@@ -860,6 +952,24 @@ console.log(jane.this);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ****************************************************Destructing
 
 // Helps in destructing a data structure like an object or array and Destructing helps to return multiple values
@@ -889,7 +999,7 @@ console.log(jane.this);
 //     lastName : 'Doe'
 // }
 
-// let {firstName,lastName} = obj; // here we have create variable as same name in the object else this will not work
+// let {firstName,lastName} = obj; // here we have created variable as same name in the object else this will not work
 
 // console.log(firstName);
 // console.log(lastName);
@@ -954,6 +1064,24 @@ console.log(jane.this);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //  ****************************************************Array and methods in ES6
 
 
@@ -978,8 +1106,31 @@ console.log(jane.this);
 //         continue;
 //     }
 //     console.log(arr[i]);
-   
+
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // ****************************************************for of loop
@@ -1019,6 +1170,32 @@ console.log(jane.this);
 
 
 // **************************************************** for of loop ends
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1069,6 +1246,24 @@ console.log(jane.this);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // **************************************************** Spread operator
 
 // function addFourAges(a,b,c,d){
@@ -1076,7 +1271,7 @@ console.log(jane.this);
 // }
 
 // addFourAges(1,2,3,4);
- 
+
 // If we want to pass array into addFourAges function we have to do below
 
 // ES5 
@@ -1128,11 +1323,218 @@ console.log(jane.this);
 
 
 
-// **************************************************** Rest 
 
 
 
 
 
 
-// **************************************************** Rest ends
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// **************************************************** Rest Parameters
+
+
+// ES5
+
+
+// function isFullAge(){
+//   console.log(arguments);// it looks like array but not it is an Object we can this proto;  
+//   // Converting arguments into array using below
+//   var arr = Array.prototype.slice.call(arguments); // Now it becomes perfect array
+//   console.log(arr); 
+//   arr.forEach((element) => {
+//       console.log( new Date().getFullYear() - element);
+//   });
+// }
+// isFullAge(1990,1992,1993); // we can add any number of parameters
+
+
+
+
+// ES6
+
+// function isFullAge6(...years){ //transforms into array
+//   //Here we no need to convert years as it will be an array
+//   years.forEach(data => console.log(data));
+// }
+
+// isFullAge6(1990,1992,1994);
+
+
+// Another example
+
+// ES5
+
+// function isFullAge(limit){
+//   // console.log(arguments); // Here even 18 will become a part of array
+//   var arr = Array.prototype.slice.call(arguments,1); // using slice method and passing 1 we are considering from years only
+//   // console.log(arr); 
+//   arr.forEach((element) => {
+//       console.log((new Date().getFullYear() - element) > limit);
+//   });
+// }
+// isFullAge(18,1992,2010,1993); // we can add any number of parameters
+
+
+
+// ES6
+
+// function isFullAge6(limit,...years){ //transforms into array
+//   //Here we no need to convert years as it will be an array
+//   years.forEach(data => {
+//     console.log((new Date().getFullYear() - data) > limit)
+//   });
+// }
+
+// isFullAge6(18,1992,2015,1994);
+
+
+
+// function rest(...arguments){ // here it converts into array
+//   return arguments.reduce((a,b) => {
+//     return a + b;
+//   });
+// }
+
+// console.log(rest(1,2,3,4,5,6));
+
+
+// **************************************************** Rest Parameters ends
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// **************************************************** ASynnchronous Programming
+
+
+// Synnchronous way using callback
+
+
+// let second = () => {
+//   console.log(`Hey second`);
+// }
+
+// let first = () => {
+//   console.log(`Hey First`);
+//   second();
+//   console.log(`Hey third`);
+// }
+
+// first();
+
+
+// Asynchrounous way using callback
+
+// example one
+
+// let second = () => {
+//   setTimeout(() => {
+//     console.log(`Hey second`);
+//   },3000); // Here we are assuming that data is coming after 3 seconds
+// }
+
+// let first = () => {
+//   console.log(`Hey First`);
+//   second();
+//   console.log(`Hey third`);
+// }
+
+// first();
+
+// example two:
+
+// function getReceipe() {
+//   let receipeId = [1, 2, 3, 4];
+
+//   setTimeout((receipe) => {
+//     console.log(receipe);
+
+//     setTimeout((id) => {
+//       console.log(id);
+//     }, 1000, receipe[1]);
+
+//   }, 2000, receipeId); 
+// }
+
+// getReceipe();
+
+// If we are using Callbacks for Asynchronous programming code structring might become more complex because in above case we have just used only two callbacks but what if we have more hence callbacks are referred as callback hell in asynchrous programming.
+
+
+
+// Asynchrounous way using Promises
+
+
+// let getReceipe = new Promise((resolve,reject) => {
+  
+//   let receipeId = [1, 2, 3, 4];
+//   setTimeout((id)=>{
+//     resolve(id);
+//   },2000,receipeId)
+//   setTimeout(() => {
+//     console.log('timeout');
+//   },2000)
+// });
+
+// getReceipe.then((result) => {
+//   console.log(result);
+// })
+
+
+
+// **************************************************** ASynnchronous Programming ends
+

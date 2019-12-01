@@ -519,8 +519,46 @@ it is used as ...
 
 
 
-
 --------------------------------- Spread Operator ends --------------------
+
+Main difference between Spread Operator and Rest parameters are 
+
+Spread Operator : This is used during function call.
+Rest parameters : This is used during function declaration (as an parameters)
+
+Mostly it depends on the place where we use them
+
+var array = [1,2,3];
+
+function arr(a,b,c){
+  console.log(a + b + c);
+}
+
+arr(...array); // Here it converts into list
+
+var a = 0;
+
+function rest(...arguments){ // here it converts into array
+  return arguments;
+}
+
+console.log(rest(1,2,3,4,5,6));
+
+
+--------------------------------- REst parameters --------------------
+
+Rest parameters are used when we don't know how many arguments will be passed to a function
+
+REst parameters are also used when we get additional arguments in the function where we have defined only particular number of parameters, Example below.
+
+
+
+
+
+
+
+--------------------------------- REst parameters ends--------------------
+
 
 
 ---------------------------------ES6 ends--------------------
@@ -529,11 +567,27 @@ it is used as ...
 
 
 
+//Asynchoronous Javascript
+It is concept where some code keeps running in the background while our main code still keeps executing
+example : Requesting the data from Remote Server like API
+
+Earlier we were using callbacks for Asynchoronous programming, but late ES6 introduced promises and in ES7 we got ASYNC/AWAIT for Asynchoronous programming.
 
 
+Promise : Promise is an object which keeps track about whether a certain event happened or not.
 
+States of promises are below
+Initially promise will be in PENDING state, after event happens it will be in RESOLVED/SETTLED state and if promise is successful then it will be FulFilled or REJECTED
 
+We can produce and consume Promises, So when we produce a promise we create a new Promise and send a result using that promise. When we consume it we can use callbacks for fulfillment and for rejectin of our promise.
 
+To create a Promise we use new keyword like below,
+new Promise((resolve,reject) => {
+ This function is called executer function and it takes two arguments (resolve and reject).
+ resolve when promise is successful and reject when not successfuls.
+ resovle() takes an argument which is for the result of the promise.
+ we have then and catch to capture the result of this promises. then will capture when it is successful and catch when not successful. NOTE: We need to have callback function in them and this callback function will take an argument which will hold the result passed from resolve (i.e., from the argument in the resolve) 
+})
 
 
 
@@ -567,6 +621,3 @@ true
 
 
 
-//Asynchoronous Javascript
-It is concept where some code keeps running in the background while our main code still keeps executing
-example : Requesting the data from Remote Server like API
