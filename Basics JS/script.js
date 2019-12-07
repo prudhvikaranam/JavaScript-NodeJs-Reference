@@ -1516,25 +1516,143 @@ console.log(jane.this);
 
 
 
-// Asynchrounous way using Promises
 
+// loadData1 = function (){
+//   var xhr = new XMLHttpRequest();
+//   xhr.open('GET','https://api.chucknorris.io/jokes/random',true);
 
-// let getReceipe = new Promise((resolve,reject) => {
-  
-//   let receipeId = [1, 2, 3, 4];
-//   setTimeout((id)=>{
-//     resolve(id);
-//   },2000,receipeId)
-//   setTimeout(() => {
-//     console.log('timeout');
-//   },2000)
-// });
+//   xhr.onload = function(){
+//     if(this.status = 200){
+//       console.log(this.responseText);
+//     }
+//   }
+//   xhr.send()
+// }
 
-// getReceipe.then((result) => {
-//   console.log(result);
+// loadData2 = function (){
+//   var xhr = new XMLHttpRequest();
+//   xhr.open('GET','https://jsonplaceholder.typicode.com/photos',true);
+
+//   xhr.onload = function(){
+//     if(this.status = 200){
+//       console.log(this.responseText);
+//     }
+//   }
+//   xhr.send()
+// }
+
+// document.getElementById('first').addEventListener('click',() => {
+//   this.loadData2();
+//   this.loadData1();
+//   console.log('asdsad');
 // })
 
 
+// console.log('asdsada');
+
+
+
+
+// Asynchrounous way using Promises by example
+
+
+// Sample example
+
+// document.getElementById('first').addEventListener('click',() => {
+//   let getJokes1 = fetch('https://api.chucknorris.io/jokes/random');
+//   getJokes1.then((data) => {
+//     console.log(data);
+//   })
+// })
+
+
+
+// document.getElementById('second').addEventListener('click',() => {
+//   let getJokes2 = fetch('https://jsonplaceholder.typicode.com/comments');
+//   getJokes2.then((data) => {
+//     console.log(data);
+//   })
+//   setTimeout(() => { // This code does'nt wait until fetch is completed
+//   console.log('asdsadsad');
+//   },200) 
+// })
+
+
+// Another example
+
+// var getJokes = fetch('https://api.chucknorris.io/jokes/random'); // This returns a promise and by default it has resolve and reject methods in it hence we can directly use then and catch methods
+// console.log(getJokes);
+
+
+// getJokes.then((jokeReceived) => {
+//   return jokeReceived.json() // This  json() returns a Promise hence we can use then again
+// }).then((result) => {
+//   console.log(result.value);
+// }).catch((error) => {
+//   console.log(`Error is ${error}`);
+// })
+
+
+// Example using Aysnc/Await.
+
+// async function getJokes(){
+//   var getJokes = fetch('https://api.chucknorris.io/jokes/random');
+//   var getJoke = await getJokes; // await is like .then, it fetches successful result and stores in variable
+//   var convertJson = await getJoke.json(); // since getJoke will also return promise we need to await
+//   console.log(convertJson);
+// }
+
+// getJokes();
+
+
+// -----------------------------------Few local examples
+
+//  Creating Promise
+// var getId = new Promise((resolve, reject) => {
+//   let ids = [10, 120, 20, 30];
+//   var show = true;
+//   if (show) {
+//     resolve(ids)
+//   } else {
+//     reject('error')
+//   }
+
+// })
+
+
+// var getIndividualId =  function (recIds){
+//   return new Promise((resolve,reject) => {
+//     setTimeout((recIds) => {
+//       resolve(recIds[1]);
+//     },5000,recIds)
+//   })
+// }
+
+ 
+
+// Consuming using .then
+
+// getId.then((result) => {
+//   console.log(result)
+//   return getIndividualId(result)
+// }).then((result1) => {
+//   console.log(result1);
+// }).catch((err) => {
+//   console.log(err);
+// })
+
+ 
+
+// // Consuming using  Async/await cannot  create promise, they only will consume promises
+
+// async function getReceipe() {
+//   const id = await getId; // await is like .then, it fetches successful result and stores in variable
+//   console.log(id);
+//   const individual = await getIndividualId(id);
+//   console.log(individual);
+// }
+
+// getReceipe()
 
 // **************************************************** ASynnchronous Programming ends
 
