@@ -1,0 +1,15 @@
+{
+  "name": "basics",
+  "version": "1.0.0",
+  "description": "Creating sample package",
+  "main": "budget.js",
+  "scripts": {
+    "dev" : "webpack"
+  },
+  "author": "Prudhvi",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}

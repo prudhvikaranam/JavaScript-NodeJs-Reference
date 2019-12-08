@@ -595,6 +595,19 @@ new Promise((resolve,reject) => {
 
 
 
+
+
+
+--------------------------------------difference between devDependencies and dependencies
+
+devDependencies are modules which are only required during development, while dependencies are modules which are also required at runtime
+
+
+
+
+
+
+
 SBI (object)
 state -- properties ****(mandatory)
 behaviour -- methods/functions ****(mandatory)
