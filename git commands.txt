@@ -20,11 +20,11 @@ git commit -m 'commit message'                        \\ committing code to repo
 
 git log                                               \\ show history of commits
 
-git branch                                             \\ shows all the branches along with                                                             the current branch we are in
+git branch                                             \\ shows all the branches along with the current branch we are in
 
 git branch branch_Name                                 \\  creates a new branch
 
-git checkout branch_Name                               \\ goes into the branch_Name if                                                                 created or creates and goes into                                                                the branch
+git checkout branch_Name                               \\ goes into the branch_Name  if created or creates and goes into                                                                the branch
 
 git branch -d branch_Name                             \\ deletes a branch to delete locally
 
@@ -36,7 +36,7 @@ git push -u origin master
 
 git ls-files                                               \\ shows files in the repository
 
-
+git remote -v                                           \\ Shows origins for both push and fetch
 
  
 
