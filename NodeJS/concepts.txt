@@ -1,0 +1,10 @@
+OOPS
+
+CLASS- represents set of objects created.
+
+polymorphism - 
+
+require ---- directive
+
+
+event loop
