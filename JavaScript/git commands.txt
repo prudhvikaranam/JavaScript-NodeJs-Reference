@@ -40,6 +40,7 @@ git remote -v                                           \\ Shows origins for bot
 
  
 
+git remote set-url origin https://github.com/emample_user/Repo_project for assigining new repo name
 
 
 
