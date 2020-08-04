@@ -1,3 +1,47 @@
+-------------------Type Coersion----------------
+
+Type coersion is process where Javascript automatically convert the data types.
+
+example : 
+var name = 'John';
+var age = 28;
+var isMarried = false;
+
+console.log(name + ' ' + age + ' ' isMarried);
+here after loggin we could see that entire result is a string even age and married are number and Boolean data types.These is called type Coersion
+
+
+
+---------------------Operator precedences---------------------
+
+Operator precedences are the one which are very useful while checking which Operator should be given more importance.
+
+
+example : 
+var yearNow = 2019;
+var yearOfBirth = 1989;
+var validAge = 18;
+
+var fullAge = yearNow - yearOfBirth >= validAge; // true;
+
+so here how we would know which operator would be executed?
+Answer is in Javascript as mentioned above we have some operator precedence rules so - would take more priority than >= and = hence minus operator would be executed first then later >= and at last =
+
+
+To check the precedences we can see the precedences table in mozila developer network website
+
+
+another example:
+var ageJohn = 35;
+var ageMark = 40;
+var average = ageMark + ageJohn / 2;
+
+In this case dividend operator will be executed first because it takes the high priority than + operator but we have to add the ages plus so we have close that be brackets like below so that it + would take priority before /
+
+var average = (ageMark + ageJohn) / 2;
+
+
+
 -------------------------THIS-------------------------------
 
 this keyword in function scope will be the global object. Even if we use this inside a function which is inside of an 		                 another function also this will refer to global object

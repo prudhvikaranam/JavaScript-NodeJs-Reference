@@ -1656,3 +1656,46 @@ console.log(jane.this);
 
 // **************************************************** ASynnchronous Programming ends
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var name = 'John';
+
+function first(){
+  var a = 'First';
+  second();
+  console.log(a + '' + name);
+}
+
+
+
+function second(){
+  var b = 'Second';
+  third();
+  console.log(b + '' + name);
+}
+
+
+function third(){
+  var c = 'First';
+  console.log(c + '' + name);
+}
+
+console.log('Outside' + ' ' + name);
+
+first();

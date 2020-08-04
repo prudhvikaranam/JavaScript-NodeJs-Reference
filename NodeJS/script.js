@@ -11,11 +11,6 @@ const express = require("express");
 const events = require("events");
 const crypto = require("crypto");
 
-
-
-
-
-
 // -------------------------------Creating a Server-------------------------------------------------
 
 // ---------------creating server using normal way
@@ -26,7 +21,6 @@ const crypto = require("crypto");
 // }).listen('8080','127.0.0.2', () => {
 //   console.log('Server running on 127.0.0.2:8080');
 // })
-
 
 // --------------creating server using Event emit process
 
@@ -41,16 +35,6 @@ const crypto = require("crypto");
 // server.listen('8080','127.0.0.1',() => {
 //   console.log('Server running in 127.0.0.1:8080');
 // });
-
-
-
-
-
-
-
-
-
-
 
 // ---------------------------------Reading & writing file -----------------------------------------
 
@@ -78,19 +62,6 @@ const crypto = require("crypto");
 //   })
 // })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ---------------------------------Routing-----------------------------------------
 
 // var server = http.createServer();
@@ -111,9 +82,6 @@ const crypto = require("crypto");
 // })
 // server.listen('8080', '127.0.0.1', () => { console.log('server started'); })
 
-
-
-
 // --------------------------------------Redirection
 
 // http.on("request", (req, res) => {
@@ -126,13 +94,6 @@ const crypto = require("crypto");
 // http.listen(8080, "127.0.0.1", () => {
 //   console.log("server started");
 // });
-
-
-
-
-
-
-
 
 // // -----------------------------------------------Event loops and Streams-----------------------------------------
 
@@ -199,9 +160,6 @@ const crypto = require("crypto");
 
 // })
 
-
-
-
 // ------------------------------------Event Loop second example-------------------------------------
 
 // setTimeout(() => {
@@ -266,12 +224,6 @@ const crypto = require("crypto");
 
 // console.log("Top-level code");
 
-
-
-
-
-
-
 // ------------------------------event Emitter
 
 // class Sale extends events {
@@ -300,17 +252,6 @@ const crypto = require("crypto");
 //   console.log('Server started');
 // })
 
-
-
-
-
-
-
-
-
-
-
-
 // // ---------------------------------Streams-----------------------------------------
 
 // readable = fs.createReadStream(`${__dirname}/input.txt`);
@@ -325,22 +266,16 @@ const crypto = require("crypto");
 
 // readable.pipe(res); // Elegant way
 
-
-
-
-
-
-
 // // ---------------------------------Express-----------------------------------------
 
-class Express extends express {
-  constructor() {
-    super();
-  }
-}
+// class Express extends express {
+//   constructor() {
+//     super();
+//   }
+// }
 
-// const app = new expresss();
-const app = new Express();
+// // const app = new expresss();
+// const app = new Express();
 
 // app.get('/',(req,res) => {
 
@@ -353,15 +288,6 @@ const app = new Express();
 // app.listen('8080','127.0.0.1',() => {
 //   console.log('App running in 8080');
 // })
-
-
-
-
-
-
-
-
-
 
 // // ---------------------------------Express-----------------------------------------
 
@@ -382,37 +308,26 @@ const app = new Express();
 //   console.log(`Application running in ${port}`);
 // })
 
+// class Express extends express{
+//   constructor(){
+//     super();
+//   }
+// }
+// const expressServer = new Express();
 
+// expressServer.listen(8080,'127.0.0.1', () => {
+//   console.log(`Express server started on PORT 8080`);
+// })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// expressServer.get('/', (req,res) => {
+//   console.log(req.route);
+//   res.status(200).json({'abc' : 'Hellos'})
+// })
 
 // //------------------------------------ Natours application
 
 // app.use(morgan('dev')) //Add loggers
-// app.use(express.json()); // This works as a middleware
+// app.use(express.json()); // This works as a middleware used the catch the request data req.body
 
 // const tours = JSON.parse(fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`));
 
@@ -473,3 +388,72 @@ const app = new Express();
 
 
 
+
+
+
+
+
+
+
+// Natours again
+
+class Express extends express {
+  constructor() {
+    super();
+  }
+}
+const expressServer = new Express();
+
+expressServer.use(Express.json()); // middleware for catching request body
+
+expressServer.use(morgan('dev')) // Third Party middle ware for logging the request status
+
+expressServer.listen(8080, "127.0.0.1", () => {
+  console.log(`Express server started on PORT 8080`);
+});
+
+
+// expressServer.use((req,res,next) => { //  Middleware
+//   console.log('Request',req);
+//   console.log('Response',res)
+//   next();
+// })
+
+const tours = JSON.parse(
+  fs.readFileSync(`${__dirname}/dev-data/data/tours.json`, "utf-8")
+);
+
+
+// -------------Route Handlers (Even route hanlders are also middleware) according to the software architecture (MVC) this are called as controllers as these are controlling the routes 
+
+
+const getAllTours = (req, res) => {
+  res.status(200).json({ message: "success", body: tours });
+}
+// expressServer.get(`/tours`, getAllTours);
+
+const postTour = (req, res) => {
+  tours.push({ data: req.body });
+  res.json(tours);
+}
+// expressServer.post("/tours", postTour);
+
+const getTour = (req, res) => {
+    let tour = req.params.id;
+    console.log(tour);
+    console.log(tours[tour]);
+    res.status(201).json({ message: "success", body: tours[tour] });
+  }
+
+// expressServer.route('/tours').get(getAllTours).post(postTour); // Chaining the route handlers
+
+// expressServer.get(`/tours/:id`,getTour);
+
+
+// Another way of chaining the routes
+const tourRouter = Express.Router(); // this is also an middleware 
+expressServer.use(`/tours`, tourRouter); // This is called as mounting routers (This should be done in main JS file)
+
+tourRouter.route(`/`).get(getAllTours).post(postTour);
+tourRouter.route(`/:id`).get(getTour);
+ 
