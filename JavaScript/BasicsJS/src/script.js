@@ -1,4 +1,4 @@
-// ************************************************Ternary and switch Operators 
+// ************************************************Ternary and switch Operators
 // ***********************Ternary
 /*
 var name = 'John' , age = 16;
@@ -7,7 +7,6 @@ age >=18 ? console.log(`${name} can drink beer`) : console.log(`${name} cannot d
 var drink = age>=18 ? 'beer' : 'milk'; // assiging different values to a variable;
 console.log(age >=18 ? `${name} can drink ${drink}` : `${name} can drink ${drink}`);
 */
-
 
 // ***********************Switch
 /*
@@ -48,21 +47,6 @@ console.log(name);
 */
 // ************************************************Ternary and switch Operators ends
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ************************************************Truthy and Falsy and Equal Operator
 
 // This will be handy if we want to check any variablle is defined or not
@@ -84,20 +68,6 @@ if(width){
 */
 // ************************************************Truthy and Falsy and Equal Operator ends
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ************************************************Functions
 
 // Functions help not to repeat same code again (DRY principal)
@@ -107,7 +77,7 @@ function calculateAge(year){
 }
 console.log(calculateAge(1991));
 */
-// Function used in another function 
+// Function used in another function
 /*
 function personAge(name,age){
   var ageCalculated = calculateAge(age);
@@ -135,24 +105,6 @@ retirement('John' , 1940);
 
 // ************************************************Functions ends
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ************************************************Functions Expressions and declaration
 /*
       var functionExpression = function(job,name){
@@ -168,22 +120,7 @@ retirement('John' , 1940);
  */
 // ************************************************Functions Expressions and declaration ends
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ************************************************Array 
+// ************************************************Array
 
 //  var array = ['John','Jane','James'];
 //  var array = new Array('John','Jane','James'); // Another way of creating array
@@ -204,22 +141,7 @@ retirement('John' , 1940);
 
 // NOTE : array.push() returns length of the array i.e., try this --> var arr = array.push('SomeThign') console.log(arr);
 
-
 // ************************************************Array ends
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // ************************************************Objects and properties
 
@@ -247,24 +169,6 @@ console.log(jane);
 
 // ************************************************Objects and properties ends
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ************************************************Objects and methods
 
 // functions defined inside object is referred as method
@@ -290,31 +194,13 @@ console.log(jane.this);
 
 // ************************************************Objects and methods ends
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ************************************************Loops and Iterations
-
 
 // var array = ['Jane',1992,'India'];
 
 // for(let i = 0; i < array.length; i++){
 //   console.log(array[i])
 // }
-
 
 // for(let i = 0; i < array.length; i++){
 //   if(typeof array[i] !== 'string'){
@@ -330,8 +216,6 @@ console.log(jane.this);
 //   console.log(array[i]);
 // }
 
-
-
 //Looping backwards
 // for(let i = array.length -1; i >= 0; i--){
 //   console.log(array[i]);
@@ -341,42 +225,21 @@ console.log(jane.this);
 
 // ************************************************Loops and Iterations ends
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ************************************************Hoisting 
-
+// ************************************************Hoisting
 
 // In Function context: Hoisting works only in function declarations and not in function expressions
-
 
 // calculateAge(1992); // works since it is function declaration
 // function calculateAge(year){
 //   console.log(2019 - year);
 // }
 
-
-
 // calculateSum(2); // will not work since function is an expression
 // var calculateSum = function(number){
 //   console.log(10 + number)
 // }
 
-// In variable context : 
+// In variable context :
 
 // console.log(a); // undefined
 // var a = 23;
@@ -392,35 +255,6 @@ console.log(jane.this);
 
 // ************************************************Hoisting  ends
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ************************************************Object Inheritance and prototype chain
 
 // Function constructor
@@ -434,8 +268,6 @@ console.log(jane.this);
 //   console.log(2019 - this.age);
 // }
 
-
-
 // var jane = new Person('Teja',1992);
 // console.log(jane);
 // jane.calculateAge();
@@ -446,41 +278,18 @@ console.log(jane.this);
 // john.calculateAge();
 // ************************************************Object Inheritance and prototype chain  ends
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // *******************************************Passing fucntions as arguments (Callbacks)
-
 
 // var yearsArray = [1990,1991,1992,1993,1994];
 
 // // var concatArray = ['d','a','b','c',1]
 // // console.log(yearsArray.concat(concatArray).sort());
 
-
 // function calculateAge(array,func){
 //   var arrayResponse = [];
 //   array.forEach((element,i) => {
 //     arrayResponse.push(func(element));
-//   });    
+//   });
 //   return arrayResponse;
 // }
 
@@ -495,7 +304,6 @@ console.log(jane.this);
 //   console.log(data);
 // })
 
-
 // function higher(name,callback){
 //   callback(name);
 // }
@@ -505,38 +313,9 @@ console.log(jane.this);
 // }
 // higher('Prudhvi Karanam',callbackfunc);
 
-
 // ****************************************************Passing fucntions as arguments ends
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ****************************************************Functions returning functions
-
 
 // function interviewQuestion(job){
 //   if(job === 'designer'){
@@ -561,7 +340,6 @@ console.log(jane.this);
 
 // interviewQuestion('designer')(['Mark','Smith']);
 
-
 // function sample(){
 //   return function name(name){
 //     console.log(`Hey ${name}`);
@@ -571,28 +349,6 @@ console.log(jane.this);
 //   console.log(result('Doe'));
 
 // ****************************************************Functions returning functions ends
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // **************************************************** Bind, Call and apply
 
@@ -622,8 +378,7 @@ console.log(jane.this);
 //   name : 'Mike'
 // };
 
-
-// var result = john.foodTimings.call(mike,'Morning')(); // This has to be called since foodtimings is returning a function 
+// var result = john.foodTimings.call(mike,'Morning')(); // This has to be called since foodtimings is returning a function
 
 // console.log(result);
 // // result();
@@ -655,10 +410,7 @@ console.log(jane.this);
 
 // console.log(isFullAge.bind(this,20));
 
-
 // example 3 :
-
-
 
 // function sample(){
 //   return this.name;
@@ -672,10 +424,7 @@ console.log(jane.this);
 
 // console.log(result());
 
-
-
 // -------------------------------------------------------bind method in Constructor and prototype
-
 
 // function Person(name){
 //   this.name = name;
@@ -685,23 +434,20 @@ console.log(jane.this);
 //   console.log(`Hey ${this.name}, how are you?`);
 //   return function(){
 //     console.log(this);
-//   }.bind(this); // If we are not using these bind method then it will be a normal function and this will refer to window object 
+//   }.bind(this); // If we are not using these bind method then it will be a normal function and this will refer to window object
 // }
-
-
 
 // Person.prototype.greeting = function(){
 //   console.log(this);
 //   console.log(`Hey ${this.name}, how are you?`);
 //   return function(){
 //     console.log(this);
-//   } 
+//   }
 // }
 
 // let john = new Person('John');
 
 // john.greeting()();
-
 
 // Extras
 
@@ -720,16 +466,12 @@ console.log(jane.this);
 
 // john.presentation('Morning','formal')
 
-
-
 // var emily = {
 //     name : 'Emily'
 // }
 
 // var result = john.presentation.bind(emily,'Evening');
 // result();
-
-
 
 // var years = [2000,1991,1994,1782,1894];
 
@@ -758,13 +500,12 @@ console.log(jane.this);
 
 // console.log(ress);
 
-
 // var person = {
 //     name : 'John'
 // }
 
 // function namee(){
-//     console.log(this);  
+//     console.log(this);
 //     console.log(`Hey ${this.name}`);
 // }
 
@@ -774,27 +515,7 @@ console.log(jane.this);
 
 // a();
 
-
 // ****************************************************Bind ends
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // **************************************************** Slice method
 
@@ -824,23 +545,6 @@ console.log(jane.this);
 
 // ****************************************************Slice method ends
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ****************************************************ES6 string methods
 
 // let firstName = 'John';
@@ -852,17 +556,6 @@ console.log(jane.this);
 
 // console.log(firstName.includes('oh')); //Check if string is available
 // console.log(`${firstName} `.repeat(4)); // if we want space
-
-
-
-
-
-
-
-
-
-
-
 
 // ****************************************************ES5 this
 
@@ -879,15 +572,6 @@ console.log(jane.this);
 
 // person.log()();
 
-
-
-
-
-
-
-
-
-
 // ****************************************************  ES6 this in arrow functions
 
 // var person = {
@@ -903,7 +587,6 @@ console.log(jane.this);
 
 // person.log()();
 
-
 // var person1 = {
 //     name : 'John',
 //     age : 25,
@@ -917,7 +600,6 @@ console.log(jane.this);
 // }
 // console.log(person1.self);
 // person1.log()();
-
 
 // function Person(name){
 //     this.name = name;
@@ -938,42 +620,11 @@ console.log(jane.this);
 // var john = new Person('John');
 // console.log(john.myFriends()());
 
-
-
-
 // ****************************************************ES6 this ends
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // ****************************************************Destructing
 
 // Helps in destructing a data structure like an object or array and Destructing helps to return multiple values
-
 
 // ES5 array
 
@@ -990,9 +641,7 @@ console.log(jane.this);
 // console.log(name);
 // console.log(age);
 
-
 // ES6 destructing Objects
-
 
 // let obj = {
 //     firstName : 'Johnn',
@@ -1004,19 +653,15 @@ console.log(jane.this);
 // console.log(firstName);
 // console.log(lastName);
 
-
-
 // let {firstName : a ,lastName : b} = obj; // if we don't want to have same name then we can use like this
 
 // console.log(a);
 // console.log(b);
 
-
 // Normal way of returning multiple values
 
 // let name = 'John Doe';
 // let age = 25;
-
 
 // function hello(){
 //     return {
@@ -1031,10 +676,8 @@ console.log(jane.this);
 
 // using Destructing way
 
-
 // let name = 'John Doe';
 // let age = 25;
-
 
 // function hello(){
 //     a = [name,age];
@@ -1055,35 +698,9 @@ console.log(jane.this);
 // console.log(age);
 // console.log(retirementAge);
 
-
-
 // ****************************************************Destructing ends
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //  ****************************************************Array and methods in ES6
-
 
 // Array.from creates an new instance of old array or strings
 
@@ -1097,8 +714,6 @@ console.log(jane.this);
 //     element.style.color = 'white';
 // })
 
-
-
 // var arr = ['John','Smith','Doe','Jole','Jane','xyz'];
 
 // for(let i = 0;i < arr.length; i++){
@@ -1109,38 +724,12 @@ console.log(jane.this);
 
 // }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ****************************************************for of loop
 
 // for of loop is the combination of forEach/map along with for loop.
 // In forEach/map loops we can't use continue or break statements but in for loop we can use
 // if we want to achieve this we can use for of loop, example below
 // we can write less code when compared to for loop
-
-
 
 // Normal for loop
 
@@ -1153,10 +742,7 @@ console.log(jane.this);
 //     box5[i].textContent = 'I changed to blue';
 // }
 
-
-
 // for of loop (ES6)
-
 
 // var boxes = document.querySelectorAll('.box');
 // var box6 = Array.from(boxes);
@@ -1168,36 +754,7 @@ console.log(jane.this);
 //     arr.textContent = 'I changed to blue';
 // }
 
-
 // **************************************************** for of loop ends
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // ****************************************************findIndex and find
 
@@ -1210,17 +767,15 @@ console.log(jane.this);
 // console.log(ages.indexOf(18));
 
 // var full = ages.map((curr) => {
-//   return curr > 18; 
+//   return curr > 18;
 // })
 
 // console.log(full.indexOf(true));
 // console.log(ages[full.indexOf(true)]);
 
-
 // ES6
 
 // var ages = [14,17,18,22,10];
-
 
 // var result = ages.findIndex((curr) => {
 //   return curr > 18;
@@ -1236,33 +791,7 @@ console.log(jane.this);
 
 // console.log(result);
 
-
 // ****************************************************findIndex and find ends
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // **************************************************** Spread operator
 
@@ -1274,7 +803,7 @@ console.log(jane.this);
 
 // If we want to pass array into addFourAges function we have to do below
 
-// ES5 
+// ES5
 
 // var array = [1,2,3,4];
 
@@ -1290,23 +819,19 @@ console.log(jane.this);
 
 // We can also use this to join two arrays
 
-
 // var first = ['John','Jane','Jonas'];
 
 // var second = ['Doe','Jos','Smith'];
-
 
 // ES5 (Here if we want to add any thing in between these two arrays we can do but using spread operator we can do)
 
 // var a = first.concat(second);
 // console.log(a);
 
-
 // ES6
 
 // var a = [...first,...second];
 // console.log(a);
-
 
 // we can add anything in between these two arrays
 
@@ -1314,58 +839,22 @@ console.log(jane.this);
 
 // console.log(a);
 
-
 // **************************************************** Spread operator ends
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // **************************************************** Rest Parameters
 
-
 // ES5
 
-
 // function isFullAge(){
-//   console.log(arguments);// it looks like array but not it is an Object we can this proto;  
+//   console.log(arguments);// it looks like array but not it is an Object we can this proto;
 //   // Converting arguments into array using below
 //   var arr = Array.prototype.slice.call(arguments); // Now it becomes perfect array
-//   console.log(arr); 
+//   console.log(arr);
 //   arr.forEach((element) => {
 //       console.log( new Date().getFullYear() - element);
 //   });
 // }
 // isFullAge(1990,1992,1993); // we can add any number of parameters
-
-
-
 
 // ES6
 
@@ -1376,7 +865,6 @@ console.log(jane.this);
 
 // isFullAge6(1990,1992,1994);
 
-
 // Another example
 
 // ES5
@@ -1384,14 +872,12 @@ console.log(jane.this);
 // function isFullAge(limit){
 //   // console.log(arguments); // Here even 18 will become a part of array
 //   var arr = Array.prototype.slice.call(arguments,1); // using slice method and passing 1 we are considering from years only
-//   // console.log(arr); 
+//   // console.log(arr);
 //   arr.forEach((element) => {
 //       console.log((new Date().getFullYear() - element) > limit);
 //   });
 // }
 // isFullAge(18,1992,2010,1993); // we can add any number of parameters
-
-
 
 // ES6
 
@@ -1404,8 +890,6 @@ console.log(jane.this);
 
 // isFullAge6(18,1992,2015,1994);
 
-
-
 // function rest(...arguments){ // here it converts into array
 //   return arguments.reduce((a,b) => {
 //     return a + b;
@@ -1414,55 +898,11 @@ console.log(jane.this);
 
 // console.log(rest(1,2,3,4,5,6));
 
-
 // **************************************************** Rest Parameters ends
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // **************************************************** ASynnchronous Programming
 
-
 // Synnchronous way using callback
-
 
 // let second = () => {
 //   console.log(`Hey second`);
@@ -1475,7 +915,6 @@ console.log(jane.this);
 // }
 
 // first();
-
 
 // Asynchrounous way using callback
 
@@ -1507,15 +946,12 @@ console.log(jane.this);
 //       console.log(id);
 //     }, 1000, receipe[1]);
 
-//   }, 2000, receipeId); 
+//   }, 2000, receipeId);
 // }
 
 // getReceipe();
 
 // If we are using Callbacks for Asynchronous programming code structring might become more complex because in above case we have just used only two callbacks but what if we have more hence callbacks are referred as callback hell in asynchrous programming.
-
-
-
 
 // loadData1 = function (){
 //   var xhr = new XMLHttpRequest();
@@ -1547,14 +983,9 @@ console.log(jane.this);
 //   console.log('asdsad');
 // })
 
-
 // console.log('asdsada');
 
-
-
-
 // Asynchrounous way using Promises by example
-
 
 // Sample example
 
@@ -1565,8 +996,6 @@ console.log(jane.this);
 //   })
 // })
 
-
-
 // document.getElementById('second').addEventListener('click',() => {
 //   let getJokes2 = fetch('https://jsonplaceholder.typicode.com/comments');
 //   getJokes2.then((data) => {
@@ -1574,15 +1003,13 @@ console.log(jane.this);
 //   })
 //   setTimeout(() => { // This code does'nt wait until fetch is completed
 //   console.log('asdsadsad');
-//   },200) 
+//   },200)
 // })
-
 
 // Another example
 
 // var getJokes = fetch('https://api.chucknorris.io/jokes/random'); // This returns a promise and by default it has resolve and reject methods in it hence we can directly use then and catch methods
 // console.log(getJokes);
-
 
 // getJokes.then((jokeReceived) => {
 //   return jokeReceived.json() // This  json() returns a Promise hence we can use then again
@@ -1591,7 +1018,6 @@ console.log(jane.this);
 // }).catch((error) => {
 //   console.log(`Error is ${error}`);
 // })
-
 
 // Example using Aysnc/Await.
 
@@ -1603,7 +1029,6 @@ console.log(jane.this);
 // }
 
 // getJokes();
-
 
 // -----------------------------------Few local examples
 
@@ -1619,7 +1044,6 @@ console.log(jane.this);
 
 // })
 
-
 // var getIndividualId =  function (recIds){
 //   return new Promise((resolve,reject) => {
 //     setTimeout((recIds) => {
@@ -1627,8 +1051,6 @@ console.log(jane.this);
 //     },5000,recIds)
 //   })
 // }
-
- 
 
 // Consuming using .then
 
@@ -1640,8 +1062,6 @@ console.log(jane.this);
 // }).catch((err) => {
 //   console.log(err);
 // })
-
- 
 
 // // Consuming using  Async/await cannot  create promise, they only will consume promises
 
@@ -1656,46 +1076,139 @@ console.log(jane.this);
 
 // **************************************************** ASynnchronous Programming ends
 
+// *************************************************** Additional concpets
 
+// var a = 1;
+// class Pet{
+//   constructor(){
+//     console.log('Inside constructor',a);
+//     a++;
+//     if(a > 5){
+//       throw 'Maximum instances reached';
+//     }
+//   }
 
+// }
 
+// try{
+//   var cat = new Pet();
+//   var cat = new Pet();
+//   var cat = new Pet();
+//   var cat = new Pet();
+//   var cat = new Pet();
+//   var cat = new Pet();
+//   var cat = new Pet();
+//   var cat = new Pet();
+// }catch(e){
+//   console.log(e);
+// }
 
+// class Pet {
+//   constructor(animal, age, breed) {
+//     this.animal = animal;
+//     this.age = age;
+//     this.breed = breed;
+//   }
 
+//   get activity(){
+//     return "Shouts a lot";
+//   }
+// }
 
+// var ernie = new Pet("Dog", 30, "Great Dane");
+// console.log(ernie);
+// console.log(ernie.activity); // No need of calling since it is not a method, it acts just like property
 
+// function something(x,y){
+//   return x+y;
+// }
 
+// for(let i =0; i <10;i++){
+//   console.log(something(24,5));
+// }
 
+// *****************Merging of two arrays with objects based on duplicates key values
 
+var warnings = [
+  { name: "abc", warning: 10 },
+  { name: "def", warning: 20 },
+  { name: "ghi", warning: 15 },
+  { name: "jkl", warning: 10 },
+];
 
+var criticals = [
+  { name: "defd", critical: 250 },      
+  { name: "jklg", critical: 1 },
+  { name: "jklgas", critical: 1 },
+  { name: "abc", critical: 100 },
+  { name: "defdxs", critical: 250 },
+  { name: "ghi", critical: 5 },
+];
 
+let combining = [...warnings, ...criticals];
 
+function compare(arr1, arr2) {
+  let finalArray1 = [];
+  let finalArray2 = [];
+  let abc;
+  let abcc;
 
-
-
-
-
-var name = 'John';
-
-function first(){
-  var a = 'First';
-  second();
-  console.log(a + '' + name);
+  arr1.forEach((el1) => {
+    arr2.forEach((el2) => {
+      if (el1.name === el2.name) {
+        abc = { ...el1, ...el2 };
+        finalArray1.push(abc);
+      }
+    });
+  });
+  return finalArray1;
 }
 
+let another = compare(warnings, criticals);
 
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [1, 3, 8];
 
-function second(){
-  var b = 'Second';
-  third();
-  console.log(b + '' + name);
-}
+warningNames = [];
+warnings.forEach((data) => {
+  warningNames.push(data["name"]);
+});
 
+criticalNames = [];
+criticals.forEach((data) => {
+  criticalNames.push(data["name"]);
+});
 
-function third(){
-  var c = 'First';
-  console.log(c + '' + name);
-}
+let unique1 = warningNames.filter((o) => {
+  return criticalNames.indexOf(o) === -1;
+});
 
-console.log('Outside' + ' ' + name);
+let unique2 = criticalNames.filter((o) => {
+  return warningNames.indexOf(o) === -1;
+});
 
-first();
+const unique = unique1.concat(unique2);
+// console.log(another);
+
+let another1 = [];
+
+combining.forEach((data) => {
+  unique.forEach((data1) => {
+    if (data["name"] == data1) {
+      another1.push(data);
+    }
+  });
+});
+
+let lastArray = [...another, ...another1];
+
+lastArray.forEach((data) => {
+  if (!("critical" in data)) {
+    data["critical"] = 0;
+  } else if (!("warning" in data)) {
+    data["warning"] = 0;
+  }
+  console.log(data);
+});
+
+// *****************Merging of two arrays with objects based on duplicates key values ends here

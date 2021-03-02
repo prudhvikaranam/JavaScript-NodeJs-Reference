@@ -22,6 +22,8 @@ git log                                               \\ show history of commits
 
 git branch                                             \\ shows all the branches along with the current branch we are in
 
+git branch -a                                           \\ shows all remote branches
+
 git branch branch_Name                                 \\  creates a new branch
 
 git checkout branch_Name                               \\ goes into the branch_Name  if created or creates and goes into                                                                the branch
@@ -38,7 +40,12 @@ git ls-files                                               \\ shows files in the
 
 git remote -v                                           \\ Shows origins for both push and fetch
 
- 
+git checkout .                                          \\ to revert all changes made locally
+
+git checkout origin/remoteBranch                        \\ to pull remote branch
+
+git checkout remoteBranch                                \\ to go into and work on the branch
+  
 
 git remote set-url origin https://github.com/emample_user/Repo_project for assigining new repo name
 
