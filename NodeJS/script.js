@@ -15,12 +15,12 @@ const crypto = require("crypto");
 
 // ---------------creating server using normal way
 
-// http.createServer((req,res)=>{
-//   console.log('Server created using normal way');
-//   res.end();
-// }).listen('8080','127.0.0.2', () => {
-//   console.log('Server running on 127.0.0.2:8080');
-// })
+http.createServer((req,res)=>{
+  console.log('Server created using normal way');
+  res.end();
+}).listen('8080','127.0.0.2', () => {
+  console.log('Server running on 127.0.0.2:8080');
+})
 
 // --------------creating server using Event emit process
 
