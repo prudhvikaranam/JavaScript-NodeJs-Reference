@@ -1,7 +1,5 @@
 // Test node JS tutorial
-// const wish = "Hey node! I just started exploring you";
 const clg = console.log;
-// clg(wish);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // ----------------------------Reading and writing files
@@ -10,8 +8,8 @@ const clg = console.log;
 
 // Synchronous
 // const fs = require("fs");
-// const textRead = fs.readFileSync("./txt/input.txt", "utf-8");
-// clg(textRead)
+// const textRead = fs.readFileSync(`${__dirname}/txt/input.txt`, "utf-8");
+// clg(textRead);
 // const textWrite = `This is what we know what avacado can do./n ${textRead}`;
 // fs.writeFileSync("./txt/output.txt", textWrite);
 // clg('New text updated...');
@@ -24,7 +22,6 @@ const clg = console.log;
 // });
 // clg('File read');
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // ----------------------------Creating Server
 // const http = require('http');
@@ -36,7 +33,6 @@ const clg = console.log;
 // serverCreator.listen(8080, '127.0.0.1', () => {
 //     clg(`Hey Node, I'm listening to server running in 127.0.0.1:8080`);
 // })
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // ----------------------------Routing
@@ -59,6 +55,3 @@ const clg = console.log;
 // }).listen(8080,'127.0.0.1', () =>{
 //     clg('Server running');
 // })
-
-
-

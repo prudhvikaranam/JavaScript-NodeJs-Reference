@@ -1,0 +1,25 @@
+// ---------------------------------------------***********************Tips
+
+---------------------------------------------------------------------------------------------------------------------
+Top level code gets executed only oncright in the beginning or at the time of execution,
+Only the call back functions which are related will get executed every time when a new request is made
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+****** fs.readFileSync("./txt/input.txt", "utf-8");// here . (dot) actually refers to the current folder from which we are running the node command from terminal
+ ****** __dirname is where the current file located
+
+
+example :
+//if you try running the file with below code from desktop you will be able to get output successfully, because __dirname provides access to the entire path of the file
+ const textRead = fs.readFileSync(`${__dirname}/txt/input.txt`, "utf-8"); ///////////////////////code////////////////////
+
+// where as below code will throw an error if you are trying to run the file from desktop because . represents that you are searching for the file in desktop
+const textRead = fs.readFileSync("./txt/input.txt", "utf-8");  ///////////////////////code////////////////////
+
+But while importing module in require('./), . means where the file is located it gets an exception of the above . rule. (so we can use . in require and it does not impact anything even after running from a different locations)
+
+
+---------------------------------------------------------------------------------------------------------------------
+res.writeHead(200, {content-type : 'application/json'}) is used to send the response headers to the client
