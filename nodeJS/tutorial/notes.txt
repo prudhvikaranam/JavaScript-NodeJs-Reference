@@ -27,3 +27,11 @@ But while importing module in require('./), . means where the file is located it
 
 ---------------------------------------------------------------------------------------------------------------------
 res.writeHead(200, {content-type : 'application/json'}) is used to send the response headers to the client
+
+
+
+
+
+-------------------------------------------------------Increase Thread pool size--------------------------------------------------------------
+
+process.env.UV_THREADPOOL_SIZE = number(example : 10);
