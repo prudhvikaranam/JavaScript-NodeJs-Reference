@@ -1,7 +1,14 @@
 // ---------------------------------------------***********************Tips
 
+console.log(require('module').wrapper); // Shows the wrapper function of every module, this is for DEMO purpose only
+
+Calculator = () => {}
+module.exports = Calculator;
+console.log(arguments); // might be helpful to see the details like path, export etc
+
+
 ---------------------------------------------------------------------------------------------------------------------
-Top level code gets executed only oncright in the beginning or at the time of execution,
+Top level code gets executed only once and right in the beginning or at the time of execution,
 Only the call back functions which are related will get executed every time when a new request is made
 
 
@@ -35,3 +42,59 @@ res.writeHead(200, {content-type : 'application/json'}) is used to send the resp
 -------------------------------------------------------Increase Thread pool size--------------------------------------------------------------
 
 process.env.UV_THREADPOOL_SIZE = number(example : 10);
+
+
+-------------------------------------------Difference between module.exports and exports
+
+**** use module.exports to export single variable e.g: a single class or a single function
+ex: 
+
+module1.js:
+class Calculator {
+   add() {
+
+   }
+   multiply () {
+
+   }
+}
+module.exports = Calculator;
+while importing one way is the below
+const C = require(./module1.js)
+const calc1 = new C();
+calc1.add(a,b);
+
+
+
+
+**** use exports to export multiple named variables
+ex: exports.add = (a,b) => a+b; or
+    exports.multiply = (a,b) => a*b;
+
+
+-- ---------------------------------------Difference between Default and named export.
+
+**** Default Export : A default export allows us to export a single value or function as the default export of a module.
+
+ex: 
+module.js
+const message = 'Hello, World!';
+export default message;
+
+import message from './module.js';
+console.log(message); // Output: Hello, World!
+
+
+**** Named Export : A named export allows us to export multiple values or functions from a module.
+ex: 
+module.js
+export function add(a, b) {
+   return a + b;
+}
+export function subtract(a, b) {
+   return a - b;
+}
+
+import { add, subtract } from './module.js';
+console.log(add(2, 3)); // Output: 5
+console.log(subtract(5, 2)); // Output: 3

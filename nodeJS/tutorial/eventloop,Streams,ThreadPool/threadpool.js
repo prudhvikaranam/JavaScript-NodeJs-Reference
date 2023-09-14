@@ -25,7 +25,7 @@ const crypto = require("crypto");
 
 // Here pbkdf2 runs inside eventloop (Thread pool) hence we can't use the console.time() methods because console.time() methods are in top level and is executed and time is shown before itself (as it is top level code).
 
-// NOTE ************* : A few async methods like fs.readFile and crypto.pbkdf2 run on a separate thread in libuv's thread pool. They do run synchronously in their own thread but as far as the main thread is concerned, it appears as if the method is  running asynchronously. 
+// NOTE ************* : A few async methods like fs.readFile and crypto.pbkdf2 run on a separate threads in libuv's thread pool. They do run synchronously in their own thread but as far as the main thread is concerned, it appears as if the method is  running asynchronously. 
 
 // NOTE ************* : One thing to remember is that if we increase the thread pool size to more than our machine's CPU cores then the average time taken per method execution also increases.
 
