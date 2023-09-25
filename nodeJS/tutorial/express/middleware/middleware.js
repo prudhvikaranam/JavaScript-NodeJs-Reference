@@ -13,7 +13,7 @@ app.use(express.json()); // Here express.json() is the middleware which gets cal
 
 app.use((req,res,next) => {
     // we can manipulate req here ;
-    // req.abc = 'abc';
+    // ex: req.abc = 'abc';
     next();
 })
 
