@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const path = require('path');
 
 
 app.use(express.static(`${__dirname}/staticFiles`)); 
@@ -19,6 +19,9 @@ app.use(express.static(`${__dirname}/publicFiles`));
 
 app.use('/static', express.static('publicFiles'))
 // Then url will be like http://localhost:3000/static/images/kitten.jpg
+
+console.log(path.join(__dirname, '../Images'));
+app.use('/images',express.static(path.join(__dirname,'../Images')));
 
 app.listen(3000, '127.0.0.5', () => {
     console.log(`Static files server started`);
