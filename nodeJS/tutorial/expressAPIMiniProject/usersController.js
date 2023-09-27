@@ -1,3 +1,24 @@
+exports.userValidation = (req, res, next, value) => {
+    if (value > 10) {
+        return res.status(404).json({
+            "message": "Id is not valid"
+        })
+    } else {
+        next();
+    }
+}
+
+exports.createUserValidation = (req, res, next) => {
+    if (!req.body.userName) {
+        return res.status(404).json({
+            "message": "Body property is not valid"
+        })
+    } else {
+        next();
+    }
+
+}
+
 exports.getUsers = (req, res) => {
     res.status(200).json({
         "users": [
@@ -14,7 +35,7 @@ exports.getUsers = (req, res) => {
                 "user": "Hulk"
             },
             {
-                "user" : "Groot"
+                "user": "Groot"
             }
         ]
     })

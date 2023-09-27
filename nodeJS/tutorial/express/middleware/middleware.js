@@ -29,3 +29,10 @@ app.use(`/routePath`, (req,res,next) => {
 const morgan = require('morgan'); //This is a HTTP request logger middleware for node.js.
 
 console.log(morgan('dev'));
+
+
+// We also have router.param middle, Go through the expressAPIMiniProject to have a understanding how it works. This middleware will help you to run some kind of validation code before reaching the API path code.
+
+
+// We can chain multiple middleware functions to the methods, Go through the expressAPIMiniProject to have a understanding how it works.
+// ex : post(userController.createUserValidation (middleware function) ,userController.createUser);
