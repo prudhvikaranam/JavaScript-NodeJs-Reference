@@ -5,6 +5,9 @@ A Mongo DB can have one or more collections and each collection can have one or 
 https://www.mongodb.com/docs/manual/reference/method/db.collection.insert/
 use --->  to switch to a db, if there is no db with that name it will create and will switch to that.
 
+
+--------------------------------------------Creating and Querying the data-------------------------------------
+
 -> show dbs
 
 -> use natours-test (This creates and switch to natours-test db).
@@ -34,3 +37,16 @@ use --->  to switch to a db, if there is no db with that name it will create and
             { objectKey : value }
           ]
     }) // OR condition
+
+
+    
+-> db.collectionName.find({
+    $or : [
+            { objectKey : value }, 
+            { objectKey : value }
+          ]
+    }, {name : 1} ) // Here we are using projections that means we are trying queries to filter the data and only want to show name from that filtered data. 
+
+
+
+--------------------------------------------Updating the data-------------------------------------
