@@ -1,0 +1,36 @@
+Mongo DB 
+A Mongo DB can have one or more collections and each collection can have one or more documents to hold the data...
+
+
+https://www.mongodb.com/docs/manual/reference/method/db.collection.insert/
+use --->  to switch to a db, if there is no db with that name it will create and will switch to that.
+
+-> show dbs
+
+-> use natours-test (This creates and switch to natours-test db).
+
+-> show collections
+
+-> db.collectionName.insertOne({'Country' : 'India','name' : 'John Doe'});
+
+-> db.collectionName.insertMany([{'Country' : 'India','name' : 'Ramu'},{'Country' : 'America','name' : 'John Doe'}])
+
+-> db.collectionName.find() // to see the data
+
+-> db.collectionName.find({'name' : 'Ramu'}) // to see any specific data
+
+-> db.collectionName.find({
+        price  : {$lte : 500 }
+    }) // prices less than or equal to 500, ($lt -> less than)
+
+-> db.collectionName.find({ 
+        price  : {$lte : 500 }, 
+        rating : {$gte : 4.8} 
+    }) // checks for both conditions (Similar to AND).
+
+-> db.collectionName.find({
+    $or : [
+            { objectKey : value }, 
+            { objectKey : value }
+          ]
+    }) // OR condition
