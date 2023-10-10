@@ -14,9 +14,15 @@ use --->  to switch to a db, if there is no db with that name it will create and
 
 -> show collections
 
+////////////////////----Insert condition
+
+
 -> db.collectionName.insertOne({'Country' : 'India','name' : 'John Doe'});
 
 -> db.collectionName.insertMany([{'Country' : 'India','name' : 'Ramu'},{'Country' : 'America','name' : 'John Doe'}])
+
+
+////////////////////----Find condition
 
 -> db.collectionName.find() // to see the data
 
@@ -26,10 +32,18 @@ use --->  to switch to a db, if there is no db with that name it will create and
         price  : {$lte : 500 }
     }) // prices less than or equal to 500, ($lt -> less than)
 
+
+////////////////////----AND condition
+
 -> db.collectionName.find({ 
         price  : {$lte : 500 }, 
         rating : {$gte : 4.8} 
     }) // checks for both conditions (Similar to AND).
+
+    db.tester.find({'country' : 'Canada','rating' : {$lt : '4.2'}});
+
+
+////////////////////----OR condition
 
 -> db.collectionName.find({
     $or : [
@@ -38,15 +52,69 @@ use --->  to switch to a db, if there is no db with that name it will create and
           ]
     }) // OR condition
 
+    db.tester.find(
+        {
+            $or : [
+                {
+                    'country' : 'Canada'
+                },
+                {
+                    'rating' : {$gt : '4.3'}
+                }
+            ]
+        }
+    )
 
-    
+////////////////////----Projection
+
 -> db.collectionName.find({
     $or : [
             { objectKey : value }, 
             { objectKey : value }
           ]
     }, {name : 1} ) // Here we are using projections that means we are trying queries to filter the data and only want to show name from that filtered data. 
+    
+    db.tester.find(
+        {
+            $or : [
+                {
+                    'country' : 'Canada'
+                },
+                {
+                    'rating' : {$gt : '4.3'}
+                }
+            ]
+        },
+        {
+            'country' : '1',
+            'name' : '1'
+        }
+    )
 
 
 
 --------------------------------------------Updating the data-------------------------------------
+
+-> db.tester.updateOne(
+        {filter/search options}, 
+        {$set : {
+            data which should be updated
+        }
+    })
+
+-> db.tester.updateOne({'name' : 'Rajuu'}, {$set : {'name' : 'Raju', 'rating' : '5.0'}})
+
+->    db.tester.updateMany(
+        {
+            'country' : 'Canadaa'
+        },
+        {
+            $set : {
+                'country' : 'Canada'
+            }
+        }
+    )
+
+-> db.tester.deleteOne({condition goes here});
+-> db.tester.deleteMany({condition goes here});
+-> db.tester.deleteMany({}) ---> This will delete all the records in the collection
