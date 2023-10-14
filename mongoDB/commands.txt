@@ -169,3 +169,44 @@ use --->  to switch to a db, if there is no db with that name it will create and
 -> db.tester.deleteOne({condition goes here});
 -> db.tester.deleteMany({condition goes here});
 -> db.tester.deleteMany({}) ---> This will delete all the records in the collection
+
+
+
+
+
+--------------------------------------------Connecting to Mongo DB here-------------------------------------
+
+To establish a connection between Mongo DB and Node JS we make use of Mongoose Library.
+
+const mongoose = require('mongoose');
+
+const DB = mongodb+srv://<USERNAME goes here>:<PASSWORD goes here>@cluster0.osvbzf0.mongodb.net/<Data BASE name goes here>retryWrites=true
+
+mongoose.connect(DB).then((data) => {
+    console.log('DB connected');
+}).catch((err) => {
+    console.log(`Error`,err);
+})
+
+
+To create and insert a new record we need to use the "model" and "schema" concepts of Mongo, below is how it looks
+
+const schema = new mongoose.Schema({
+    name : {
+        type : String,
+        required : true
+        // For other properties check go through the official document
+    },
+    age : Number
+})
+
+const modelName = mongoose.model('collectionName',schema); // Model is like a Class in Javascript where make use of model (as a blue print) and create new instances by creating records like below
+
+const newRecord = new modelName({
+    name : ''Ramu',
+    age : 20
+})
+
+newRecord.save();
+
+In the above example we configured the database name in the url and the collection name in the model (collectionName).
