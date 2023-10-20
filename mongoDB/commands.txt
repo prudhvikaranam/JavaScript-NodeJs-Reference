@@ -1,4 +1,4 @@
-Mongo DB 
+Mongo DB
 
 --------------------------------------------Terminologies starts here-------------------------------------
 
@@ -191,10 +191,14 @@ mongoose.connect(DB).then((data) => {
 
 To create and insert a new record we need to use the "model" and "schema" concepts of Mongo, below is how it looks
 
+
+One morething to remember is that, by the help of creating schema if we even send additional data to the database it will only save the props which are defined in the schema (that means it won't throw any error but will store only data that is defined in the schema)
+
 const schema = new mongoose.Schema({
     name : {
         type : String,
-        required : true
+        required : [true,'Error message goes here'],
+        unique : true
         // For other properties check go through the official document
     },
     age : Number
@@ -207,6 +211,14 @@ const newRecord = new modelName({
     age : 20
 })
 
-newRecord.save();
+newRecord.save(); // This will return a promise (So can use .then ...... or async and await as well)
+
+We have an another way of creating the document, that is directly on the modelName like below.
+
+modelName.create({}) // Even this return promises.
+
+Difference between .save() and create() is below
+-> Using .save() we create a new document on top of the model and call the save method which is on the newly created document.
+-> Using .create() method we are directly creating the data on Model itself.
 
 In the above example we configured the database name in the url and the collection name in the model (collectionName).
