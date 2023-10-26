@@ -1,6 +1,17 @@
+const toursModel = require('./toursModel');
+
 exports.getTours = (req, res) => {
-    res.status(200).json({
-        'status': 'GET:::::Total Tours are 100'
+
+    toursModel.find().then((data) => {
+        res.status(200).json({
+            'status' : 'Success',
+            'data' : data
+        })
+    }).catch((err) => {
+        res.status(500).json({
+            status: 'error',
+            message : err
+        })
     })
 }
 exports.postTours = (req, res) => {
