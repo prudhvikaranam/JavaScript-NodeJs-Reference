@@ -1,7 +1,7 @@
 const app = require('./app');
 const mongoose = require('mongoose');
 
-const db = process.env.MONGO_URL;
+const db = process.env.MONGO_URL.replace('<USERNAME>',process.env.MONGO_USERNAME).replace('<PASSCODE>',process.env.MONGO_PASSWORD);
 mongoose.connect(db).then(() => {
     console.log('Connected to Mongo server');
 }).catch((err) => {
