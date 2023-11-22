@@ -1,4 +1,22 @@
-{
-    "place": "West Bengal",
-    "rating": 4
-}
+[
+    {
+        "place": "Hyderabad",
+        "rating": 5
+    },
+    {
+        "place": "West Bengal",
+        "rating": 4
+    },
+    {
+        "place": "Goa",
+        "rating": 3
+    },
+    {
+        "place": "Bangalore",
+        "rating": 4
+    },
+    {
+        "place": "Mumbai",
+        "rating": 2
+    }
+]

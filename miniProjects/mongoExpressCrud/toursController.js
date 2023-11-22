@@ -29,3 +29,28 @@ exports.postTours = (req, res) => {
         })
     })
 }
+
+exports.getfilteredData = async (req, res) => {
+    console.log(`Request`, req.query);
+
+    // toursModel.find(req.query).then((data) => { // Using filter method.
+    //     console.log(`Data ${data}`);
+    //     res.status(200).json({
+    //         'status': 'Success',
+    //         'totalTours': data.length,
+    //         'data': data
+    //     })
+    // }).catch((err) => {
+    //     res.status(200).json({
+    //         status: 'errorr',
+    //         message: err
+    //     })
+    // })
+
+    const tours = await toursModel.find().where('rating').equals(3);//Using where clause
+    res.status(200).json({
+        'status': 'Success',
+        'totalTours': tours.length,
+        'data': tours
+    })
+}

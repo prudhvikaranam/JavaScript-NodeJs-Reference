@@ -23,12 +23,23 @@ const deleteData = async () => {
         process.exit();
     } catch (error) {
         console.log('Error in deleting', error);
+        process.exit();
     }
 }
 
-if (process.argv[2] === '--import') {
-    toursModel.create(JSON.parse(readDumpData));
+const addData = async () => {
+    await toursModel.create(JSON.parse(readDumpData)).then((data) => {
+        console.log(`Data added successfully`, data);
+    }).catch((error) => {
+        console.log('Error in adding data', error);
+    })
     process.exit();
+
+}
+
+if (process.argv[2] === '--import') {
+    console.log(`coming inside`);
+    addData();
 
 } else if (process.argv[2] === '--delete') {
     deleteData();
