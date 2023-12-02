@@ -31,44 +31,59 @@ exports.postTours = (req, res) => {
 }
 
 exports.getfilteredData = async (req, res) => {
-
-    // BUILD QUERY
-    let query = { ...req.query };
-    // Excluding unwanted filters
-    let advancedFilterQueries = ['limit', 'page', 'sort'];
-    advancedFilterQueries.forEach((queries) => { delete query[queries] })
-
-
-
-    // ADVANCED FILTERING
-    //  URl --> http://127.0.0.5:8080/tours/ratings?rating[gte]=4&limit=4&page=1
-    let advancedFilter = JSON.stringify(query);
-    advancedFilter = advancedFilter.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`);
-    advancedFilter = JSON.parse(advancedFilter);
-    console.log(`Advanced filter ${advancedFilter}`);
+    try {
+        // BUILD QUERY
+        let query = { ...req.query };
+        // Excluding unwanted filters
+        let advancedFilterQueries = ['limit', 'page', 'sort'];
+        advancedFilterQueries.forEach((queries) => { delete query[queries] })
 
 
 
+        // ADVANCED FILTERING
+        //  URl --> http://127.0.0.5:8080/tours/ratings?rating[gte]=4&limit=4&page=1
+        let advancedFilter = JSON.stringify(query);
+        advancedFilter = advancedFilter.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`);
+        advancedFilter = JSON.parse(advancedFilter);
+        // console.log(`Advanced filter ${JSON.stringify(advancedFilter)}`);
 
-    // EXECUTE QUERY
-    toursModel.find(advancedFilter).then((data) => { // Using filter method.
-        // console.log(`Data ${data}`);
+        // From the below, we are trying to build find query and also storing the find query on the toursQuery variable.... toursModel.find() will be giving an query hence we are able to add sort method on that and then finally we are triggeting (await toursQuery) the toursQuery on the executing phase which will trigger the find query and fetch the results into tours variable.
+
+        let toursQuery =  toursModel.find(advancedFilter); 
+        console.log(`toursQuery before Sorting --- ${toursQuery}`);
+
+        // Sorting
+        // http://127.0.0.5:8080/tours/ratings?rating[gte]=3&sort=price&page=1 // By default ascending order, add - in front of 3 for descending order
+        if(req.query.sort){
+            // toursQuery = toursQuery.sort(req.query.sort);
+            // if we are having multiple sorts then we separate the string with ,
+            // http://127.0.0.5:8080/tours/ratings?rating[gte]=3&sort=price,rating&page=1
+            let sortBy = req.query.sort.split(',').join(' ');
+            toursQuery = toursQuery.sort(sortBy);
+        }
+
+
+        // EXECUTE QUERY
+        const tours = await toursQuery;
+        // console.log(`Tours ${tours}`);
         res.status(200).json({
             'status': 'Success',
-            'totalTours': data.length,
-            'data': data
+            'totalTours': tours.length,
+            'data': tours
         })
-    }).catch((err) => {
-        res.status(200).json({
-            status: 'errorr',
-            message: err
-        })
-    })
 
-    // const tours = await toursModel.find().where('rating').equals(3);//Using where clause
-    // res.status(200).json({
-    //     'status': 'Success',
-    //     'totalTours': tours.length,
-    //     'data': tours
-    // })
+
+        // const tours = await toursModel.find().where('rating').equals(3);//Using where clause
+        // res.status(200).json({
+        //     'status': 'Success',
+        //     'totalTours': tours.length,
+        //     'data': tours
+        // })
+    } catch (error) {
+        res.status(200).json({
+            status: 'error',
+            message: error
+        })
+    }
+
 }
