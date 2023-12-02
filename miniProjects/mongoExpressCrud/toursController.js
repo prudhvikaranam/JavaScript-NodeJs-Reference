@@ -31,26 +31,44 @@ exports.postTours = (req, res) => {
 }
 
 exports.getfilteredData = async (req, res) => {
-    console.log(`Request`, req.query);
 
-    // toursModel.find(req.query).then((data) => { // Using filter method.
-    //     console.log(`Data ${data}`);
-    //     res.status(200).json({
-    //         'status': 'Success',
-    //         'totalTours': data.length,
-    //         'data': data
-    //     })
-    // }).catch((err) => {
-    //     res.status(200).json({
-    //         status: 'errorr',
-    //         message: err
-    //     })
-    // })
+    // BUILD QUERY
+    let query = { ...req.query };
+    // Excluding unwanted filters
+    let advancedFilterQueries = ['limit', 'page', 'sort'];
+    advancedFilterQueries.forEach((queries) => { delete query[queries] })
 
-    const tours = await toursModel.find().where('rating').equals(3);//Using where clause
-    res.status(200).json({
-        'status': 'Success',
-        'totalTours': tours.length,
-        'data': tours
+
+
+    // ADVANCED FILTERING
+    //  URl --> http://127.0.0.5:8080/tours/ratings?rating[gte]=4&limit=4&page=1
+    let advancedFilter = JSON.stringify(query);
+    advancedFilter = advancedFilter.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`);
+    advancedFilter = JSON.parse(advancedFilter);
+    console.log(`Advanced filter ${advancedFilter}`);
+
+
+
+
+    // EXECUTE QUERY
+    toursModel.find(advancedFilter).then((data) => { // Using filter method.
+        // console.log(`Data ${data}`);
+        res.status(200).json({
+            'status': 'Success',
+            'totalTours': data.length,
+            'data': data
+        })
+    }).catch((err) => {
+        res.status(200).json({
+            status: 'errorr',
+            message: err
+        })
     })
+
+    // const tours = await toursModel.find().where('rating').equals(3);//Using where clause
+    // res.status(200).json({
+    //     'status': 'Success',
+    //     'totalTours': tours.length,
+    //     'data': tours
+    // })
 }
