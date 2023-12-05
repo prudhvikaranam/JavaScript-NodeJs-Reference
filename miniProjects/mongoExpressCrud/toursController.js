@@ -49,22 +49,43 @@ exports.getfilteredData = async (req, res) => {
 
         // From the below, we are trying to build find query and also storing the find query on the toursQuery variable.... toursModel.find() will be giving an query hence we are able to add sort method on that and then finally we are triggeting (await toursQuery) the toursQuery on the executing phase which will trigger the find query and fetch the results into tours variable.
 
-        let toursQuery =  toursModel.find(advancedFilter); 
+        let toursQuery = toursModel.find(advancedFilter);
         console.log(`toursQuery before Sorting --- ${toursQuery}`);
 
         // Sorting
         // http://127.0.0.5:8080/tours/ratings?rating[gte]=3&sort=price&page=1 // By default ascending order, add - in front of 3 for descending order
-        if(req.query.sort){
+        if (req.query.sort) {
             // toursQuery = toursQuery.sort(req.query.sort);
             // if we are having multiple sorts then we separate the string with ,
             // http://127.0.0.5:8080/tours/ratings?rating[gte]=3&sort=price,rating&page=1
             let sortBy = req.query.sort.split(',').join(' ');
             toursQuery = toursQuery.sort(sortBy);
+        } else {
+            toursQuery = toursQuery;
         }
 
 
+        // Limiting fields
+        // this can be used if we want to retrieve only specific fields.
+
+        if (req.query.fields) {
+            let fields = req.query.fields.split(',').join(' ');
+            console.log(`Fields ${fields}`);
+            toursQuery = toursQuery.select(fields);
+        } else {
+            toursQuery = toursQuery;
+        }
+
+        console.log(`toursQuery after limiting fields --- ${toursQuery}`);
+
+
+
         // EXECUTE QUERY
-        const tours = await toursQuery;
+        // Query should be like this --> { rating: { '$gte': '4' } }, { 'place': 1 }
+        const tours = await toursQuery; 
+        // const tours = await toursModel.find({ rating: { '$gte': '4' } }, { 'place': 1 });
+        console.log(`toursQuery ${toursQuery}`);
+        // const tours = await toursQuery;
         // console.log(`Tours ${tours}`);
         res.status(200).json({
             'status': 'Success',
@@ -81,7 +102,7 @@ exports.getfilteredData = async (req, res) => {
         // })
     } catch (error) {
         res.status(200).json({
-            status: 'error',
+            status: 'errors',
             message: error
         })
     }
