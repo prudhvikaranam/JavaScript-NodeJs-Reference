@@ -16,7 +16,7 @@ exports.getTours = (req, res) => {
     })
 }
 exports.postTours = (req, res) => {
-    console.log(`Request`, req.body);
+    // console.log(`Request`, req.body);
     toursModel.create(req.body).then((data) => {
         res.status(200).json({
             'status': `Success`,
@@ -45,12 +45,12 @@ exports.getfilteredData = async (req, res) => {
         let advancedFilter = JSON.stringify(query);
         advancedFilter = advancedFilter.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`);
         advancedFilter = JSON.parse(advancedFilter);
-        // console.log(`Advanced filter ${JSON.stringify(advancedFilter)}`);
+        // // console.log(`Advanced filter ${JSON.stringify(advancedFilter)}`);
 
         // From the below, we are trying to build find query and also storing the find query on the toursQuery variable.... toursModel.find() will be giving an query hence we are able to add sort method on that and then finally we are triggeting (await toursQuery) the toursQuery on the executing phase which will trigger the find query and fetch the results into tours variable.
 
         let toursQuery = toursModel.find(advancedFilter);
-        console.log(`toursQuery before Sorting --- ${toursQuery}`);
+        // console.log(`toursQuery before Sorting --- ${toursQuery}`);
 
         // Sorting
         // http://127.0.0.5:8080/tours/ratings?rating[gte]=3&sort=price&page=1 // By default ascending order, add - in front of 3 for descending order
@@ -70,13 +70,13 @@ exports.getfilteredData = async (req, res) => {
 
         if (req.query.fields) {
             let fields = req.query.fields.split(',').join(' ');
-            console.log(`Fields ${fields}`);
+            // console.log(`Fields ${fields}`);
             toursQuery = toursQuery.select(fields);
         } else {
             toursQuery = toursQuery;
         }
 
-        console.log(`toursQuery after limiting fields --- ${toursQuery}`);
+        // console.log(`toursQuery after limiting fields --- ${toursQuery}`);
 
 
 
@@ -84,9 +84,8 @@ exports.getfilteredData = async (req, res) => {
         // Query should be like this --> { rating: { '$gte': '4' } }, { 'place': 1 }
         const tours = await toursQuery; 
         // const tours = await toursModel.find({ rating: { '$gte': '4' } }, { 'place': 1 });
-        console.log(`toursQuery ${toursQuery}`);
-        // const tours = await toursQuery;
-        // console.log(`Tours ${tours}`);
+        // console.log(`toursQuery ${toursQuery}`);
+        console.log(`Tours ${tours}`);
         res.status(200).json({
             'status': 'Success',
             'totalTours': tours.length,

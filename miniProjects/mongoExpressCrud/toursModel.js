@@ -3,13 +3,15 @@ const toursSchema = new mongoose.Schema({
     place: {
         type: String,
         required: true,
-        unique : true
+        unique : true,
+        select: false // By adding false we are excluding the fields right from the schema)
     },
-    rating : Number
+    rating : Number,
+    price : Number
 })
 
 const toursModel = mongoose.model('newTours',toursSchema);
 
 
 
-module.exports = toursModel;
+module.exports = toursModel;    
