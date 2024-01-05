@@ -32,7 +32,7 @@ exports.postTours = (req, res) => {
 
 exports.getfilteredData = async (req, res) => {
     try {
-        // BUILD QUERY
+        // 1) ------------------------------------------------ BUILD QUERY
         let query = { ...req.query };
         // Excluding unwanted filters
         let advancedFilterQueries = ['limit', 'page', 'sort'];
@@ -40,7 +40,9 @@ exports.getfilteredData = async (req, res) => {
 
 
 
-        // ADVANCED FILTERING
+
+
+        // 2) ------------------------------------------------ ADVANCED FILTERING
         //  URl --> http://127.0.0.5:8080/tours/ratings?rating[gte]=4&limit=4&page=1
         let advancedFilter = JSON.stringify(query);
         advancedFilter = advancedFilter.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`);
@@ -52,7 +54,11 @@ exports.getfilteredData = async (req, res) => {
         let toursQuery = toursModel.find(advancedFilter);
         // console.log(`toursQuery before Sorting --- ${toursQuery}`);
 
-        // Sorting
+
+
+
+
+        // 3) ------------------------------------------------ Sorting
         // http://127.0.0.5:8080/tours/ratings?rating[gte]=3&sort=price&page=1 // By default ascending order, add - in front of 3 for descending order
         if (req.query.sort) {
             // toursQuery = toursQuery.sort(req.query.sort);
@@ -65,7 +71,12 @@ exports.getfilteredData = async (req, res) => {
         }
 
 
-        // Limiting fields
+
+
+
+
+
+        // 4) ----------------------------------------------- Limiting fields
         // this can be used if we want to retrieve only specific fields.
 
         if (req.query.fields) {
@@ -80,12 +91,18 @@ exports.getfilteredData = async (req, res) => {
 
 
 
-        // EXECUTE QUERY
-        // Query should be like this --> { rating: { '$gte': '4' } }, { 'place': 1 }
+        // 5) ------------------------------------------------ Pagination
+
+
+
+
+
+
+
+
+        // Final) ------------------------------------------- EXECUTE QUERY
         const tours = await toursQuery; 
         // const tours = await toursModel.find({ rating: { '$gte': '4' } }, { 'place': 1 });
-        // console.log(`toursQuery ${toursQuery}`);
-        console.log(`Tours ${tours}`);
         res.status(200).json({
             'status': 'Success',
             'totalTours': tours.length,
