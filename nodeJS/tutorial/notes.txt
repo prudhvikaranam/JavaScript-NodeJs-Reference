@@ -81,7 +81,7 @@ module.js
 const message = 'Hello, World!';
 export default message;
 
-import message from './module.js';
+import message or any other name can be given from './module.js';
 console.log(message); // Output: Hello, World!
 
 
