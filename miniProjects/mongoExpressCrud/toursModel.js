@@ -4,7 +4,7 @@ const toursSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique : true,
-        select: false // By adding false we are excluding the fields right from the schema)
+        select: true // By adding false we are excluding the fields right from the schema)
     },
     rating : Number,
     price : Number

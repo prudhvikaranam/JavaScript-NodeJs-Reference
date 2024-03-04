@@ -11,7 +11,7 @@ Documents are equivalent to records or rows of data in SQL. While a SQL row can 
 Fields
 Fields, also known as properties or attributes, are similar to columns in a SQL table. In the image above, FirstName, LastName, Email, and Phone are all fields.
 
-Schema
+Schema (Schema is basically the structure of the database....)
 While Mongo is schema-less, SQL defines a schema via the table definition. A Mongoose schema is a document data structure (or shape of the document) that is enforced via the application layer.
 
 SchemaTypes

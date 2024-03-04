@@ -1,4 +1,4 @@
-exports.userValidation = (req, res, next, value) => {
+exports.userValidation = (req, res, next, value) => { // In param middleware function, we have fourth parameters which is value
     if (value > 10) {
         return res.status(404).json({
             "message": "Id is not valid"
