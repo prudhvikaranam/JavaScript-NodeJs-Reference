@@ -11,7 +11,8 @@ const toursSchema = new mongoose.Schema({
 })
 
 const toursModel = mongoose.model('newTours',toursSchema);
-
-
+// mongoose.model(<Collectionname>, <CollectionSchema>)
+// Collection name: It is the name of the collection.
+// Collection Schema: It is the schema of the collection.
 
 module.exports = toursModel;    
