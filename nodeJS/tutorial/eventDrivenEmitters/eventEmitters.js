@@ -8,7 +8,7 @@
 // console.log('Event Emitters Before Event emitters');
 
 
-// Example 1:::::::::::::::::::::
+// // // Example 1:::::::::::::::::::::
 // myEmitter.on('newSale', (value) => {
 //     console.log('Event listener 1 for the value', value);
 // })
@@ -35,7 +35,7 @@
 // });
 
 // setTimeout(() => {
-//     console.log('Example 2 Event listener with setTimeout 0 for the value');
+//     console.log('Example 2 Event listener with direct setTimeout 0 for the value');
 // }, 0)
 
 // myEmitter.on('newSale', (value) => {
@@ -46,8 +46,14 @@
 
 // myEmitter.on('newSale', (value) => {
 //     setTimeout(() => {
-//         console.log('Example 2 setTimeout inside event listener');
+//         console.log('Example 2 setTimeout 0 inside event listener');
 //     }, 0)
+// });
+
+// myEmitter.on('newSale', (value) => {
+//     setTimeout(() => {
+//         console.log('Example 2 setTimeout 0.5 inside event listener');
+//     }, 0.5)
 // });
 
 // myEmitter.emit('newSale', 20); // Can pass arguments which are optional...

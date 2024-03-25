@@ -164,11 +164,11 @@
 //     setImmediate(() => { console.log('Set immediate 6 inside FS read') });
 
 //     Promise.resolve().then(() => {
-//         console.log('promise resolve 1');
+//         console.log('promise resolve 1 inside FS');
 //     })
 
 //     process.nextTick(() => {
-//         console.log('process next tick 1');
+//         console.log('process next tick 1 inside FS');
 //     });
 // })
 
@@ -210,7 +210,7 @@
 // setImmediate(() => { console.log('Set immediate 1') });
 // setImmediate(() => {
 //     console.log('Set immediate 2')
-//     process.nextTick(() => { `process next tick inside set immediate` });
+//     process.nextTick(() => { console.log(`process next tick inside set immediate`)});
 //     Promise.resolve().then(() => {
 //         console.log(`Promise callback inside set immediate`);
 //     })
