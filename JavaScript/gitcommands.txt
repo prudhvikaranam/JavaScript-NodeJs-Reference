@@ -55,6 +55,12 @@ git remote set-url origin https://github.com/emample_user/Repo_project for assig
 git merge develop
 Ex: we are currently in master branch, and if you want to get develop branch code into master we can run above command. This is called merging develop branch with master branch
 
+NVM usage
+install from website
+nvm version // to check version
+nvm ls // to check node versions list in machine
+nvm use 18.*.* // to switch to specific node versions which are available in  machine
+
 
 
 ********LINUX COMMANDS************
