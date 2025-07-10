@@ -11,44 +11,59 @@
 
 // See image processNextTick.png in folder to check pros and cons
 
-// Promise.resolve().then(() => {
-//     console.log('promise resolve 1');
-// })
+Promise.resolve().then(() => {
+    console.log('promise resolve 1');
+})
 
-// Promise.resolve().then(() => {
-//     console.log('promise resolve 2');
-//     process.nextTick(() => {
-//         console.log('process next tick inside Promise resolve 2');
-//     })
-// })
+Promise.resolve().then(() => {
+    console.log('promise resolve 2');
+    process.nextTick(() => {
+        console.log('process next tick inside Promise resolve 2');
+    })
+})
 
-// Promise.resolve().then(() => {
-//     console.log('promise resolve 3');
-// })
+Promise.resolve().then(() => {
+    console.log('promise resolve 3');
+})
 
-// process.nextTick(() => {
-//     console.log('process next tick 1');
-//     Promise.resolve().then(() => {
-//         console.log('promise resolve inside nexttick 1');
-//     })
-// })
+process.nextTick(() => {
+    console.log('process next tick 1');
+    Promise.resolve().then(() => {
+        console.log('promise resolve inside nexttick 1');
+    })
+})
 
-// process.nextTick(() => {
-//     console.log('process next tick 2');
-//     process.nextTick(() => {
-//         console.log('process next tick innerr 2');
-//     })
-// })
+process.nextTick(() => {
+    console.log('process next tick 2');
+    process.nextTick(() => {
+        console.log('process next tick innerr 2');
+        process.nextTick(() => {
+            console.log('process next tick innerr innerr 2');
+        })
+    })
+})
 
-// process.nextTick(() => {
-//     console.log('process next tick 3');
-// });
+process.nextTick(() => {
+    console.log('process next tick 3');
+    process.nextTick(() => {
+        console.log('process next tick innerr 3');
+        process.nextTick(() => {
+            console.log('process next tick innerr innerr 3');
+        })
+    })
+});
 
-// setImmediate(() => {
-//     Promise.resolve().then(() => {
-//         console.log('promise resolve inside timeout');
-//     })
-// });
+setImmediate(() => {
+    Promise.resolve().then(() => {
+        console.log('promise resolve inside timeout');
+    })
+});
+
+
+console.log('Outside and synchronous code');
+
+
+
 // ---------------------------------- Event loop flow of Microtasks queue ends here------------------------------------------------
 
 
