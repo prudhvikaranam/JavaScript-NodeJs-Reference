@@ -30,11 +30,3 @@ async function run() {
  
 }
 run().catch(console.dir);
-
-
-http.createServer((req, res) => {
-    console.log('Prudhvi server running');
-    res.end('App running');
-}).listen(8080, '127.0.0.2', () => {
-    console.log('server startedddddd');
-})
