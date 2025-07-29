@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 
 
 const usersSchema = new mongoose.Schema({
-    user: String,
+    user: {
+        type: String,
+        required: true
+    },
     age: Number,
     country: String
 })
@@ -17,6 +20,12 @@ const UsersModel = mongoose.model(
     //    - If you omit the 3rd argument, Mongoose will pluralize this to guess the collection name
     //    - Example: 'User' becomes 'users', 'PersonData' becomes 'persondatas'
     //    - This name is also used when accessing this model later via mongoose.models['users']
+    //    - Example : mongoose.model('User', userSchema);
+    //    - Mongoose will:
+    //    - Take 'User'
+    //    - Lowercase it
+    //    - Pluralize it → 'users'
+    //     - Then use 'users' as the MongoDB collection name
 
     usersSchema,       // 🔹 The schema definition for documents in this model (fields, types, validators, etc.)
 
