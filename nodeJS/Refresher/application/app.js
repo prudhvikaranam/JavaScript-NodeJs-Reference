@@ -1,6 +1,7 @@
 const express = require('express'),
     app = express();
 const UserModel = require('./models/userModel');
+const bCrypt = require('bcrypt');
 
 
 app.use(express.json());
@@ -11,6 +12,9 @@ app.post('/registerUser', async (req, res) => {
         if (userWithSameEmail) {
             res.status(201).json('Email ID already registered')
         } else {
+            const { password } = req.body;
+            const hashPassword = await bCrypt.hash(password, 12)
+            req.body.password = hashPassword;
             const user = new UserModel(req.body);
             const saveUser = await user.save();
             res.send(`User added successfully ${JSON.stringify(saveUser)}`)
