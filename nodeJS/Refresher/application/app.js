@@ -2,9 +2,11 @@ const express = require('express'),
     app = express();
 const UserModel = require('./models/userModel');
 const bCrypt = require('bcrypt');
-
+const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
 
 app.use(express.json());
+app.use(cookieParser());
 
 // Register user
 app.post('/registerUser', async (req, res) => {
@@ -34,7 +36,6 @@ app.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
         const getUser = await UserModel.findOne({ email }).lean();
-        const { _id, __v, ...safeUser } = getUser;
 
 
         if (!getUser) {
@@ -46,13 +47,14 @@ app.post('/login', async (req, res) => {
             res.status(404).send('Passwords do not match, please try again or Request to password change');
         }
 
+        const token = jwt.sign({ id: getUser._id.toString() }, 'P@ssw0rd#123', { expiresIn: '1h' });
 
-        console.log('Prudhvi safeUser', safeUser);
-
+        res.cookie('token', `${token}`, { expires: new Date(Date.now() + 900000) });
 
         res.status(200).json({
             'status': 'success',
-            'message': `${safeUser.firstName} ${safeUser.lastName} have logged-in successfully!!!`
+            'message': `${getUser.firstName} ${getUser.lastName} have logged-in successfully!!!`,
+            'token': token
         })
 
 
@@ -62,14 +64,33 @@ app.post('/login', async (req, res) => {
 })
 
 
+// Get my profile
 
+app.get('/profile', async (req, res) => {
+    const { token } = req.cookies;
+
+
+    if (!token) {
+        res.status(400).send('Token not available');
+        return
+    }
+    let decoded;
+    try {
+        decoded = jwt.verify(token, 'P@ssw0rd#123');
+    } catch (err) {
+        res.status(400).send('Invalid token');
+        return
+    }
+
+    const user = await UserModel.findOne({ _id: decoded.id }).lean();
+    res.send(user)
+})
 
 // Get all users
 
 app.get('/getAllUsers', async (req, res) => {
     const users = await UserModel.find({}).lean();
     const safeUsers = users.map(({ _id, __v, ...rest }) => rest);
-    console.log(safeUsers);
     res.status(200).json(safeUsers)
 })
 
